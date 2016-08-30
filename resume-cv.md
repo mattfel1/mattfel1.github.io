@@ -1,5 +1,5 @@
 ---
-layout: Page
+layout: page
 title: Resume/CV
 permalink: /resume-cv/
 category: "Resume/CV"
