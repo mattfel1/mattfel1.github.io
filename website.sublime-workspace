@@ -1,0 +1,558 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tree",
+				"rTreeMap"
+			],
+			[
+				"inds",
+				"indicesManifest"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "_config.yml",
+			"settings":
+			{
+				"buffer_size": 617,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"command_palette":
+	{
+		"height": 272.0,
+		"selected_items":
+		[
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 153.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/MaxJManager.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/bin/spatial",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/log",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/MaxJPreCodegen.scala",
+		"/home/mattfel/Dropbox/Lessons_Learned_Kunle",
+		"/mnt/london/hyperdsl/delite/runtime/src/static/maxj/templates/MemoryCmdSM.maxj",
+		"/mnt/london/hyperdsl/delite/bin/delite",
+		"/mnt/london/hyperdsl/delite/bin/delitec",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/log",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/static/templates/BramLib.maxj",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/PlasticineLatencyAnalyzer.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/OpsAnalyzer.scala",
+		"/mnt/london/hyperdsl/spatial/dsl/Spatial.scala",
+		"/mnt/london/hyperdsl/delite/framework/src/ppl/delite/framework/analysis/IRPrinter.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/MemoryTemplateOpsExp.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/PipeTemplateOpsExp.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/PIRScheduler.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/DotProduct.scala",
+		"/mnt/london/hyperdsl/spatial/apps/DotProduct.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/UnrollingTransformer.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/SpatialConfig.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/DotIRPrinter.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/pipe_diagram.html",
+		"/mnt/london/hyperdsl/test.html",
+		"/mnt/london/hyperdsl/test.xml",
+		"/home/mattfel/.config/sublime-text-2/Packages/User/html.sublime-build",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/LatencyModel.scala",
+		"/mnt/london/hyperdsl/delite/framework/src/ppl/delite/framework/analysis/StencilAnalysis.scala",
+		"/mnt/london/hyperdsl/delite/framework/src/ppl/delite/framework/analysis/LoopAnalysis.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/PrinterLast.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/bin/delitec",
+		"/mnt/london/hyperdsl/spatial/dsl/SpatialMetadata.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/MemoryAnalyzer.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/LoweredPipeOpsExp.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/ExternPrimitiveOpsExp.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/BaseLib.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/TopKernelLib.maxj",
+		"/mnt/london/hyperdsl/spatial/apps/src/BlackScholes.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/Kmeans.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/GDA.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/TPCHQ6.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/OuterProduct.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/MatMult_outer.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/MatMult_inner.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/pipe3733_reduce_kernel.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/pipe4006_reduce_kernel.maxj",
+		"/mnt/london/hyperdsl/spatial/apps/src/GEMM_layered.scala",
+		"/home/mattfel/Dropbox/Ardavan_Matt_Shared/GEMM.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/pipe1884_reduce_kernel.maxj",
+		"/mnt/london/hyperdsl/spatial/apps/src/GEMM.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/static/TopKernel.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/bram_BRAM1790.maxj",
+		"/mnt/london/hyperdsl/spatial/dsl/Math.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/pipe4229_reduce_kernel.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/static/templates/MemoryCmdSt.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/false",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/pipe1224_reduce_kernel.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/bram_BRAM1112.maxj",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/ControlSignalAnalyzer.scala",
+		"/mnt/london/hyperdsl/build/Spatial/compiler/src/spatial/compiler/Spatial.scala",
+		"/mnt/london/hyperdsl/virtualization-lms-core/src/internal/BlockTraversal.scala",
+		"/mnt/london/hyperdsl/spatial/README.md",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/ReductionAnalyzer.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/ArgInOut.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/RegChainPass.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/ParameterAnalyzer.scala",
+		"/mnt/london/hyperdsl/build/Spatial/compiler/src/spatial/compiler/ops/OffChipMemOpsExp.scala",
+		"/mnt/london/hyperdsl/delite/framework/src/ppl/delite/framework/analysis/LastIRPrinter.scala",
+		"/mnt/london/hyperdsl_old/forge/apps/DHDL/src/CodegenUnitTests.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/RegisterFolding.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/static/templates/DblBufKernelLib.maxj",
+		"/mnt/london/hyperdsl/delite/runtime/src/static/maxj/templates/BramLib.maxj",
+		"/mnt/london/hyperdsl/delite/runtime/src/static/maxj/templates/DblBufKernelLib.maxj",
+		"/mnt/london/hyperdsl/spatial/apps/src/LogReg.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/PageRank.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/TriangleCounting.scala",
+		"/mnt/london/hyperdsl/spatial/apps/src/MatMult.scala",
+		"/mnt/london/hyperdsl/build/Spatial/compiler/src/spatial/compiler/ops/OffChipMemOpsImpl.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/MemoryTemplateOpsExp.scala",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/OffChipAnalyzer.scala",
+		"/mnt/london/hyperdsl/spatial/dsl/OffChip.scala",
+		"/mnt/london/hyperdsl/spatial/dsl/BRAMs.scala",
+		"/mnt/london/hyperdsl/spatial/dsl/Memories.scala",
+		"/mnt/london/hyperdsl/delite/runtime/src/static/maxj/templates/MemoryCmdGen.maxj",
+		"/mnt/london/hyperdsl/spatial/extern/compiler/src/ops/ExternCounterOpsExp.scala",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/counter_Counter1147.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/counter_CounterChain3264.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/metapipe_metapipe4205.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/static/templates/PipeSM.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/static/templates/MemoryCmdGen.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/sequential_void1240.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/counter_Counter1157.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/counter_Counter1158.maxj",
+		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/runtime/Executable1.cpp",
+		"/mnt/london/hyperdsl/published/DHDL/out/maxj/src/kernels/BaseLib.maxj",
+		"/mnt/london/hyperdsl/published/DHDL/log",
+		"/mnt/london/hyperdsl/published/DHDL/out/maxj/src/kernels/TopKernelLib.maxj",
+		"/mnt/london/.bashrc",
+		"/mnt/london/.bash_aliases",
+		"/mnt/london/hyperdsl/forge/apps/DHDL/src/MatMult.scala",
+		"/mnt/london/hyperdsl/forge/apps/DHDL/src/DotProduct.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/UnrollingTransformer.scala",
+		"/mnt/london/hyperdsl/forge/src/dsls/dhdl/DHDL.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/ControlSignalAnalyzer.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/RegisterFolding.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/LoweredPipeOpsExp.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/MaxJPreCodegen.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/MemoryAnalyzer.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/ExternPrimitiveOpsExp.scala",
+		"/mnt/london/hyperdsl/forge/extern/DHDL/compiler/src/ops/RegChainPass.scala",
+		"/mnt/london/hyperdsl/published/DHDL/out/maxj/src/kernels/bram_BRAM1028.maxj",
+		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDL.scala",
+		"/home/mattfel/hyperdsl/delite/runtime/src/static/maxj/templates/BramLib.maxj",
+		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLMath.scala",
+		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLMetadata.scala",
+		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLBRAMs.scala",
+		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLTypes.scala",
+		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLControllers.scala",
+		"/home/mattfel/hyperdsl/delite/runtime/src/static/maxj/Makefile.top",
+		"/home/mattfel/hyperdsl/make_blackscholes.sh",
+		"/home/mattfel/hyperdsl/make_dotproduct.sh",
+		"/home/mattfel/hyperdsl/make_tpchq6.sh",
+		"/home/mattfel/hyperdsl/make_logreg.sh",
+		"/home/mattfel/hyperdsl/make_matmult.sh",
+		"/home/mattfel/hyperdsl/make_char_tests.sh",
+		"/home/mattfel/hyperdsl/make_unit_tests.sh",
+		"/home/mattfel/hyperdsl/published/DHDL/out/maxj/src/kernels/BaseLib.maxj",
+		"/home/mattfel/hyperdsl/published/DHDL/out/maxj/src/kernels/MaxJManager.maxj"
+	],
+	"find":
+	{
+		"height": 140.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"connectwport",
+			"connectrport",
+			"misc",
+			"github",
+			"debug.sim",
+			" 1 1 1",
+			"connectwport",
+			"fill",
+			"argin",
+			"FixedPoint922",
+			"FixedPoint919",
+			"FixedPoint922",
+			"argin917",
+			"FixedPoint919",
+			"argin917",
+			"argin",
+			"256",
+			"64",
+			"memory",
+			"if ",
+			"quot",
+			"constant.va",
+			"constant.var(true)",
+			"getNumberOfBursts",
+			"size_of_read",
+			"getNumberOfBursts",
+			"FixedPoint1011",
+			"connectwport",
+			"FIFO1014_rdata",
+			"pipe1025_en",
+			"917",
+			"argin",
+			"void1015_en",
+			"size",
+			"memstream",
+			"Offchip_load_cmd",
+			"void1015",
+			"v",
+			"void1015_en",
+			"FIFO1014_writeEn",
+			"void1015_done",
+			"pipe1025_done",
+			"FixedPoint1020",
+			"FIFO1014_rdata",
+			"FIFO1014_wdata",
+			"constant.var(dfeUInt(32),",
+			"DFEUInt",
+			"constfix",
+			"memorycmdgenlib",
+			"ispowerof",
+			"type",
+			"FixedPoint1011",
+			"memorycmd",
+			"64",
+			"parallel",
+			"latencyofblock",
+			"parallel ",
+			"parallel",
+			"reduce $",
+			"reduce",
+			"reduce_",
+			"_reduce",
+			"meta accum_fold",
+			"inner_fold",
+			"table_init",
+			"inner",
+			"latencyofpipe",
+			"apps",
+			"table_init",
+			"inner_foreach",
+			"pir",
+			"debugs",
+			"..",
+			"cycleScope",
+			"parallel",
+			"inner",
+			"layer_html",
+			"layer_html += ",
+			"pipe_diagram.write",
+			"inner_fold",
+			"tolong",
+			"value",
+			":+ ",
+			"working on",
+			"scopeLevel",
+			"top",
+			"toInt",
+			"toLong",
+			"_4",
+			"first_layer",
+			"._",
+			"diagram",
+			" diagram = diagram :",
+			"diagram = diagram",
+			"meta",
+			" diagram = diagram :+ ((l",
+			"print_diagram(lhs",
+			"print_diagram",
+			"diagram",
+			"ismetapi",
+			"inner_for",
+			"inner_foraech",
+			"P3",
+			"until",
+			"level",
+			"s, 1, \"",
+			"788",
+			"TH",
+			"TR",
+			"TD",
+			"diagram(",
+			"diagram(lhs, 1)",
+			"latencyOfBlock",
+			"traverse",
+			"printwriter",
+			"      case ",
+			"case ",
+			"level",
+			"debug(",
+			"debug",
+			"debugs",
+			"cycleAnalyzer",
+			"latencyana",
+			"opsan",
+			"debugMode",
+			"cycles",
+			"debuglast",
+			"debugginglast"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"aoeu"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "_config.yml",
+					"settings":
+					{
+						"buffer_size": 617,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 154.0
+	},
+	"output.latextools":
+	{
+		"height": 130.0
+	},
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"makefile.top",
+				"delite/runtime/src/static/maxj/Makefile.top"
+			],
+			[
+				"basicctrlopsexp",
+				"forge/DHDL.symlink/ops/BasicCtrlOpsExp.scala"
+			],
+			[
+				"regchainpass",
+				"forge/extern/DHDL/compiler/src/ops/RegChainPass.scala"
+			],
+			[
+				"externcounterops",
+				"forge/extern/DHDL/compiler/src/ops/ExternCounterOpsExp.scala"
+			],
+			[
+				"postpr",
+				"delite/runtime/src/ppl/delite/runtime/profiler/PostProcessor.scala"
+			],
+			[
+				"dhdlmetadataopsimpl",
+				"forge/DHDL.symlink/ops/DHDLMetadataOpsImpl.scala"
+			],
+			[
+				"dblbufkernellib",
+				"delite/runtime/src/static/maxj/templates/DblBufKernelLib.maxj"
+			],
+			[
+				"delitec",
+				"delite/bin/delitec"
+			],
+			[
+				"affineanal",
+				"delite/framework/src/ppl/delite/framework/analysis/AffineAnalysis.scala"
+			],
+			[
+				"memoryana",
+				"forge/extern/DHDL/compiler/src/ops/MemoryAnalyzer.scala"
+			],
+			[
+				"run.sh",
+				"delite/runtime/src/static/maxj/scripts/run.sh"
+			],
+			[
+				"maxjmanager",
+				"forge/extern/DHDL/compiler/src/ops/MaxJManagerGen.scala"
+			],
+			[
+				"makefile",
+				"delite/runtime/src/static/maxj/Makefile.top"
+			],
+			[
+				"offchipmemops",
+				"published/DHDL/ops/OffChipMemOpsExp.scala"
+			],
+			[
+				"unrollingtransformer",
+				"forge/extern/DHDL/compiler/src/ops/UnrollingTransformer.scala"
+			],
+			[
+				"unrollingtransf",
+				"forge/extern/DHDL/compiler/src/ops/UnrollingTransformer.scala"
+			],
+			[
+				"bram.scala",
+				"published/DHDL/library/src/dhdl/library/classes/BRAM.scala"
+			],
+			[
+				"dummy",
+				"delite/runtime/src/static/maxj/templates/DummyMemLib.maxj"
+			],
+			[
+				"dhdlmetadata",
+				"forge/src/dsls/dhdl/DHDLMetadata.scala"
+			],
+			[
+				"loweredpipeops",
+				"forge/extern/DHDL/compiler/src/ops/LoweredPipeOpsExp.scala"
+			],
+			[
+				"memorytemplateops.",
+				"forge/extern/DHDL/compiler/src/ops/MemoryTemplateOpsExp.scala"
+			],
+			[
+				"memorytemplateops",
+				"forge/extern/DHDL/shared/src/ops/MemoryTemplateOps.scala"
+			],
+			[
+				"topkernellib",
+				"forge/DHDL.symlink/generated/BlockReduce1DTest/maxj/kernels/TopKernelLib.maxj"
+			],
+			[
+				"dhdls",
+				"forge/src/dsls/dhdl/DHDLControllers.scala"
+			],
+			[
+				"pipetemplateops",
+				"forge/extern/DHDL/compiler/src/ops/PipeTemplateOpsExp.scala"
+			],
+			[
+				"codegenunit",
+				"forge/apps/DHDL/src/CodegenUnitTests.scala"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 50.0,
+	"status_bar_visible": true
+}
