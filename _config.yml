@@ -10,7 +10,7 @@ title: Matt Feldman
 email: matt@mattfeldman.org
 description: Website
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "www.mattfeldman.org" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
 github_username:  mattfel1
 
 # Build settings
