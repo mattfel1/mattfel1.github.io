@@ -19,7 +19,31 @@
 			"file": "_config.yml",
 			"settings":
 			{
-				"buffer_size": 617,
+				"buffer_size": 643,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resume-cv.md",
+			"settings":
+			{
+				"buffer_size": 300,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "joggling.md",
+			"settings":
+			{
+				"buffer_size": 664,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_posts/2016-03-30-welcome-to-jekyll.markdown",
+			"settings":
+			{
+				"buffer_size": 110,
 				"line_ending": "Unix"
 			}
 		}
@@ -27,7 +51,7 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 272.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -43,7 +67,7 @@
 				"Markdown Preview: Preview in Browser"
 			]
 		],
-		"width": 575.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -60,6 +84,12 @@
 	},
 	"file_history":
 	[
+		"/home/mattfel/mattfel1.github.io/index.html",
+		"/home/mattfel/Dropbox/Shared_Desktop/ResumeTex/ResumeMaster.html",
+		"/home/mattfel/Dropbox/Shared_Desktop/ResumeTex/ResumeMaster.tex",
+		"/home/mattfel/Dropbox/Shared_Desktop/ResumeTex/SGF_CV.tex",
+		"/home/mattfel/mattfel1.github.io/_layouts/page.html",
+		"/home/mattfel/mattfel1.github.io/website.sublime-project",
 		"/mnt/london/hyperdsl/spatial/published/Spatial/out/maxj/src/kernels/MaxJManager.maxj",
 		"/mnt/london/hyperdsl/spatial/published/Spatial/bin/spatial",
 		"/mnt/london/hyperdsl/spatial/published/Spatial/out/log",
@@ -181,13 +211,7 @@
 		"/home/mattfel/hyperdsl/delite/runtime/src/static/maxj/Makefile.top",
 		"/home/mattfel/hyperdsl/make_blackscholes.sh",
 		"/home/mattfel/hyperdsl/make_dotproduct.sh",
-		"/home/mattfel/hyperdsl/make_tpchq6.sh",
-		"/home/mattfel/hyperdsl/make_logreg.sh",
-		"/home/mattfel/hyperdsl/make_matmult.sh",
-		"/home/mattfel/hyperdsl/make_char_tests.sh",
-		"/home/mattfel/hyperdsl/make_unit_tests.sh",
-		"/home/mattfel/hyperdsl/published/DHDL/out/maxj/src/kernels/BaseLib.maxj",
-		"/home/mattfel/hyperdsl/published/DHDL/out/maxj/src/kernels/MaxJManager.maxj"
+		"/home/mattfel/hyperdsl/make_tpchq6.sh"
 	],
 	"find":
 	{
@@ -206,6 +230,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"doc",
 			"connectwport",
 			"connectrport",
 			"misc",
@@ -332,8 +357,7 @@
 			"opsan",
 			"debugMode",
 			"cycles",
-			"debuglast",
-			"debugginglast"
+			"debuglast"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -353,7 +377,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -361,20 +385,98 @@
 					"file": "_config.yml",
 					"settings":
 					{
-						"buffer_size": 617,
+						"buffer_size": 643,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								629,
+								629
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resume-cv.md",
+					"settings":
+					{
+						"buffer_size": 300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								96
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "joggling.md",
+					"settings":
+					{
+						"buffer_size": 664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								659,
+								659
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "_posts/2016-03-30-welcome-to-jekyll.markdown",
+					"settings":
+					{
+						"buffer_size": 110,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								107,
+								107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
