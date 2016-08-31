@@ -6,8 +6,12 @@ category: "Resume/CV"
 tagline: ""
 ---
 
-
-
-<iframe src="http://docs.google.com/gview?url=mattfel1.github.io/ResumeMaster.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0"></iframe>
-
+<html>
+<body>
+    <object data="https://mattfel1.github.io/ResumeMaster.pdf" style="width:718px; height:700px;" type="application/pdf">
+        <embed src="https://mattfel1.github.io/ResumeMaster.pdf" type="application/pdf" />
+    </object>
+</body>
+</html>
+	
 <a href="/ResumeMaster.pdf">Download CV</a>
