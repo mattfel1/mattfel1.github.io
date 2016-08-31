@@ -8,7 +8,7 @@
 # Site settings
 title: Matt Feldman
 email: matt@mattfeldman.org
-description: Matt Feldman's website 
+description: Matt Feldman's personal page 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://mattfel1.github.io" # the base hostname & protocol for your site
 github_username:  mattfel1
