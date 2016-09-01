@@ -19,31 +19,47 @@
 			"file": "_config.yml",
 			"settings":
 			{
-				"buffer_size": 643,
+				"buffer_size": 648,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resume-cv.md",
+			"file": "resume-cv/index.html",
 			"settings":
 			{
-				"buffer_size": 300,
+				"buffer_size": 408,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "joggling.md",
+			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 664,
+				"buffer_size": 912,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "_posts/2016-03-30-welcome-to-jekyll.markdown",
+			"file": "about/index.html",
 			"settings":
 			{
-				"buffer_size": 110,
+				"buffer_size": 91,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "joggling/index.html",
+			"settings":
+			{
+				"buffer_size": 1055,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "projects/index.html",
+			"settings":
+			{
+				"buffer_size": 896,
 				"line_ending": "Unix"
 			}
 		}
@@ -84,7 +100,12 @@
 	},
 	"file_history":
 	[
+		"/home/mattfel/mattfel1.github.io/_layouts/default.html",
 		"/home/mattfel/mattfel1.github.io/index.html",
+		"/home/mattfel/mattfel1.github.io/projects.md",
+		"/home/mattfel/mattfel1.github.io/_posts/2016-03-30-welcome-to-jekyll.markdown",
+		"/home/mattfel/mattfel1.github.io/joggling.md",
+		"/home/mattfel/mattfel1.github.io/resume-cv.md",
 		"/home/mattfel/Dropbox/Shared_Desktop/ResumeTex/ResumeMaster.html",
 		"/home/mattfel/Dropbox/Shared_Desktop/ResumeTex/ResumeMaster.tex",
 		"/home/mattfel/Dropbox/Shared_Desktop/ResumeTex/SGF_CV.tex",
@@ -206,12 +227,7 @@
 		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLMath.scala",
 		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLMetadata.scala",
 		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLBRAMs.scala",
-		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLTypes.scala",
-		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLControllers.scala",
-		"/home/mattfel/hyperdsl/delite/runtime/src/static/maxj/Makefile.top",
-		"/home/mattfel/hyperdsl/make_blackscholes.sh",
-		"/home/mattfel/hyperdsl/make_dotproduct.sh",
-		"/home/mattfel/hyperdsl/make_tpchq6.sh"
+		"/home/mattfel/hyperdsl/forge/src/dsls/dhdl/DHDLTypes.scala"
 	],
 	"find":
 	{
@@ -230,6 +246,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"preydator",
+			"854",
+			"your_url_to_pdf",
 			"doc",
 			"connectwport",
 			"connectrport",
@@ -354,10 +373,7 @@
 			"debugs",
 			"cycleAnalyzer",
 			"latencyana",
-			"opsan",
-			"debugMode",
-			"cycles",
-			"debuglast"
+			"opsan"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -377,7 +393,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -385,15 +401,15 @@
 					"file": "_config.yml",
 					"settings":
 					{
-						"buffer_size": 643,
+						"buffer_size": 648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								629,
-								629
+								350,
+								350
 							]
 						],
 						"settings":
@@ -408,23 +424,24 @@
 				},
 				{
 					"buffer": 1,
-					"file": "resume-cv.md",
+					"file": "resume-cv/index.html",
 					"settings":
 					{
-						"buffer_size": 300,
+						"buffer_size": 408,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								96,
-								96
+								144,
+								144
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -434,23 +451,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "joggling.md",
+					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 664,
+						"buffer_size": 912,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								659,
-								659
+								902,
+								902
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -460,23 +479,77 @@
 				},
 				{
 					"buffer": 3,
-					"file": "_posts/2016-03-30-welcome-to-jekyll.markdown",
+					"file": "about/index.html",
 					"settings":
 					{
-						"buffer_size": 110,
+						"buffer_size": 91,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								107,
-								107
+								91,
+								91
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "joggling/index.html",
+					"settings":
+					{
+						"buffer_size": 1055,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								432,
+								432
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "projects/index.html",
+					"settings":
+					{
+						"buffer_size": 896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								878,
+								878
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
