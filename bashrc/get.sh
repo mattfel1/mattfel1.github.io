@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd ~/mattfel1.github.io/bashrc
+touch hi
 servers=("max-2" "tucson" "portland" "london" "maxeler")
 for s in ${servers[@]}; do
   if [[ $s = "maxeler" ]]; then
