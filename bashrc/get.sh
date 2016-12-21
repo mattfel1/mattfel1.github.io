@@ -10,15 +10,15 @@ for s in ${servers[@]}; do
   fi
   scp -o ConnectTimeout=1 ${cmd}:~/.bashrc ~/mattfel1.github.io/bashrc/${s}_bashrc.sh
   if [[ $? = 0 ]]; then # success
-    sed 's/rgb(.*)">$s bashrc/rgb(0,0,255)">$s bashrc/g' index.html
+    sed -i 's/rgb(.*)">$s bashrc/rgb(0,0,255)">$s bashrc/g' index.html
   else # fail
-    sed 's/rgb(.*)">$s bashrc/rgb(255,0,0)">$s bashrc/g' index.html
+    sed -i 's/rgb(.*)">$s bashrc/rgb(255,0,0)">$s bashrc/g' index.html
   fi
   scp -o ConnectTimeout=1 ${cmd}:~/.bash_aliases ~/mattfel1.github.io/bashrc/${s}_bash_aliases.sh
   if [[ $? = 0 ]]; then # success
-    sed 's/rgb(.*)">$s bashrc/rgb(0,0,255)">$s bashrc/g' index.html
+    sed -i 's/rgb(.*)">$s bashrc/rgb(0,0,255)">$s bashrc/g' index.html
   else # fail
-    sed 's/rgb(.*)">$s bashrc/rgb(255,0,0)">$s bashrc/g' index.html
+    sed -i 's/rgb(.*)">$s bashrc/rgb(255,0,0)">$s bashrc/g' index.html
   fi
 done
 
