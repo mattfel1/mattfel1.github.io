@@ -10,7 +10,7 @@ for s in ${servers[@]}; do
   fi
   scp -o ConnectTimeout=1 ${cmd}:~/.bashrc ~/mattfel1.github.io/bashrc/${s}_bashrc.sh
   if [[ $? = 0 ]]; then # success
-    sed -i 's/rgb(.*)">$s bashrc/rgb(0,0,255)">$s bashrc/g' index.html
+    sed 's/rgb(.*)">$s bashrc/rgb(0,0,255)">$s bashrc/g' index.html
   else # fail
     sed -i 's/rgb(.*)">$s bashrc/rgb(255,0,0)">$s bashrc/g' index.html
   fi
