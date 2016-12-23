@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd ~/mattfel1.github.io/bashrc
+git pull
 servers=("max-2" "tucson" "portland" "london" "maxeler")
 for s in ${servers[@]}; do
   if [[ $s = "maxeler" ]]; then
@@ -28,6 +29,6 @@ done
 
 cd ~/mattfel1.github.io/bashrc
 git add -A
-git commit -m "auto update"
+git commit -m "auto update from tucson"
 git push
 
