@@ -194,6 +194,10 @@ alias pub='cd ${HYPER_HOME}/published/DHDL'
 alias clean_tex='find ~/Dropbox/Shared_Desktop/ResumeTex/. -type f  ! -name "*.tex"  -delete'
 alias pingmaxeler='ping -p 3033 portal.maxeler.com'
 alias corn='gnome-terminal --profile=cyclades -e "ssh -X corn.stanford.edu";exit'
+alias wave='gtkwave $(ls -Rt /home/mattfel/hyperdsl/spatial/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+#alias test='ls -Rt /home/mattfel/hyperdsl/spatial/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1'
+
+
 export FORGE_HOME='/home/mattfel/hyperdsl/forge'
 export DELITE_HOME='/home/mattfel/hyperdsl/delite'
 export LMS_HOME='/home/mattfel/hyperdsl/virtualization-lms-core'
