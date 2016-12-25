@@ -204,5 +204,7 @@ export LMS_HOME='/home/mattfel/hyperdsl/virtualization-lms-core'
 export JAVA_HOME='/usr/lib/jvm/java-7-openjdk-amd64'
 export HYPER_HOME='/home/mattfel/hyperdsl'
 export PIR_HOME='/home/mattfel/hyperdsl/forge'
+export SPATIAL_HOME='/home/mattfel/hyperdsl/spatial'
+export PUB_HOME='/home/mattfel/hyperdsl/spatial/published/Spatial'
 export -f hyperdsl
 export PATH=$PATH:'/home/mattfel/firrtl/utils/bin'
