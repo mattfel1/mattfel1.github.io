@@ -137,6 +137,37 @@ echo "sshing"
 gnome-terminal --profile=elio -e "ssh -X london.stanford.edu ";exit
 }
 
+function fastapp {
+cp -r ${SPATIAL_HOME}/extern/compiler/src/* ${PUB_HOME}/compiler/src/spatial/compiler;cd ${PUB_HOME}/;sbt -DshowSuppressedErrors=true compile
+if [[ "$?" -ne "0" ]]; then
+  echo "messed up compile"
+else
+  if [ ${2} != "" ]; then
+    bin/spatial --outdir=${PUB_HOME}/${2} ${1} | tee /tmp/fastlog
+    exc=$(cat /tmp/fastlog | grep "Exception in thread" | wc -l)
+    if [[ "$?" -ne "0" ]]; then
+      echo "messed up spatial build"
+    elif [[ $exc != 0 ]]; then
+      echo "messed up spatial build"
+    else
+      cd ${PUB_HOME}/${2}
+      #make clean sim | grep --color=never -A4 "\[maxjcompiler\] [0-9]\+\. ERROR\|^[^\[]\|\[maxjcompiler\] [0-9]\+ problems"
+    fi
+  else
+    bin/spatial ${1} | tee /tmp/fastlog
+    exc=$(cat /tmp/fastlog | grep "Exception in thread" | wc -l)
+    if [[ "$?" -ne "0" ]]; then
+      echo "messed up spatial build"
+    elif [[ $exc != 0 ]]; then
+      echo "messed up spatial build"
+    #else
+    #  remk
+    fi
+  fi
+fi
+}
+
+
 function open_ctrl {
 if [ -z $1 ]; then
   echo "ERROR: Need app name"
@@ -194,9 +225,10 @@ alias pub='cd ${HYPER_HOME}/published/DHDL'
 alias clean_tex='find ~/Dropbox/Shared_Desktop/ResumeTex/. -type f  ! -name "*.tex"  -delete'
 alias pingmaxeler='ping -p 3033 portal.maxeler.com'
 alias corn='gnome-terminal --profile=cyclades -e "ssh -X corn.stanford.edu";exit'
-alias wave='gtkwave $(ls -Rt /home/mattfel/hyperdsl/spatial/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+alias appwave='gtkwave $(ls -Rt ${PUB_HOME}/out/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+alias tempwave='gtkwave $(ls -Rt /home/mattfel/hyperdsl/delite/runtime/src/static/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 #alias test='ls -Rt /home/mattfel/hyperdsl/spatial/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1'
-
+alias templates='cd ~/hyperdsl/delite/runtime/src/static/chisel/'
 
 export FORGE_HOME='/home/mattfel/hyperdsl/forge'
 export DELITE_HOME='/home/mattfel/hyperdsl/delite'
