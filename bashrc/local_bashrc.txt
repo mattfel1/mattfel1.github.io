@@ -160,7 +160,8 @@ else
       echo "messed up spatial build"
     elif [[ $exc != 0 ]]; then
       echo "messed up spatial build"
-    #else
+    else
+      cd ${PUB_HOME}/out
     #  remk
     fi
   fi
