@@ -143,7 +143,7 @@ if [[ "$?" -ne "0" ]]; then
   echo "messed up compile"
 else
   if [ ${2} != "" ]; then
-    bin/spatial --outdir=${PUB_HOME}/${2} ${1} | tee /tmp/fastlog
+    bin/spatial --debug --outdir=${PUB_HOME}/${2} ${1} | tee /tmp/fastlog
     exc=$(cat /tmp/fastlog | grep "Exception in thread" | wc -l)
     if [[ "$?" -ne "0" ]]; then
       echo "messed up spatial build"
@@ -154,7 +154,7 @@ else
       #make clean sim | grep --color=never -A4 "\[maxjcompiler\] [0-9]\+\. ERROR\|^[^\[]\|\[maxjcompiler\] [0-9]\+ problems"
     fi
   else
-    bin/spatial ${1} | tee /tmp/fastlog
+    bin/spatial --debug ${1} | tee /tmp/fastlog
     exc=$(cat /tmp/fastlog | grep "Exception in thread" | wc -l)
     if [[ "$?" -ne "0" ]]; then
       echo "messed up spatial build"
