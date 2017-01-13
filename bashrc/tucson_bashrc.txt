@@ -218,3 +218,4 @@ export DELITE_HOME=${HYPER_HOME}/delite
 export LMS_HOME=${HYPER_HOME}/virtualization-lms-core
 export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
 export JAVA_HOME=/usr/
+export RISCV=/home/mattfel/rocket-chip/riscv-tools
