@@ -147,13 +147,21 @@ rsync -avz -e "ssh -p 3033" mfeldman@portal.maxeler.com:/home/mfeldman/$1 /remot
 function remk {
 cd ${PUB_HOME}/out
 make clean
-ant
-# Patch makefile, Because ant won't run inside a makefile if I set the symlinks correctly
-sed -i "s/JAVA_HOME = \/usr\/lib\/jvm\/java-7-openjdk-amd64/JAVA_HOME = \/usr/g" Makefile
-sed -i "s/ant/#\/usr\/share\/ant\/bin\/ant/g" Makefile
-sed -i '4i J_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.40.x86_64' Makefile
-sed -i "s/-I\$(JAVA_HOME)\/include -I\$(JAVA_HOME)\/include\/linux/-I\$(J_HOME)\/include -I\$(J_HOME)\/include\/linux/g" Makefile
-make sim | grep --color=never -A4 "\[maxjcompiler\] [0-9]\+\. ERROR\|^[^\[]\|\[maxjcompiler\] [0-9]\+ problems"
+branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
+branch_name="(unnamed branch)"     # detached HEAD
+branch_name=${branch_name##refs/heads/}
+if [[ $branch_name = "maxj" ]]; then
+  ant
+  # Patch makefile, Because ant won't run inside a makefile if I set the symlinks correctly
+  sed -i "s/JAVA_HOME = \/usr\/lib\/jvm\/java-7-openjdk-amd64/JAVA_HOME = \/usr/g" Makefile
+  sed -i "s/ant/#\/usr\/share\/ant\/bin\/ant/g" Makefile
+  sed -i '4i J_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.40.x86_64' Makefile
+  sed -i "s/-I\$(JAVA_HOME)\/include -I\$(JAVA_HOME)\/include\/linux/-I\$(J_HOME)\/include -I\$(J_HOME)\/include\/linux/g" Makefile
+  make sim | grep --color=never -A4 "\[maxjcompiler\] [0-9]\+\. ERROR\|^[^\[]\|\[maxjcompiler\] [0-9]\+ problems"
+else
+  make sim
+fi
+
 }
 ## Helper for deleting directories when you still have those nfs files stuck in use
 # 1 - directory to delete
