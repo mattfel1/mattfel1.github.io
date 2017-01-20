@@ -137,12 +137,24 @@ echo "sshing"
 gnome-terminal --profile=elio -e "ssh -X london.stanford.edu ";exit
 }
 
+# Arg 1 = appname
+# Arg 2 = directory or debug [dir=out, debug=false by default]
 function fastapp {
 cp -r ${SPATIAL_HOME}/extern/compiler/src/* ${PUB_HOME}/compiler/src/spatial/compiler;cd ${PUB_HOME}/;sbt -DshowSuppressedErrors=true compile
 if [[ "$?" -ne "0" ]]; then
   echo "messed up compile"
 else
-  if [ ${2} != "" ]; then
+  if [ ${2} = "debug" ]; then
+    bin/spatial --debug ${1} | tee /tmp/fastlog
+    exc=$(cat /tmp/fastlog | grep "Exception in thread" | wc -l)
+    if [[ "$?" -ne "0" ]]; then
+      echo "messed up spatial build"
+    elif [[ $exc != 0 ]]; then
+      echo "messed up spatial build"
+    else
+      cd ${PUB_HOME}/out
+    fi
+  elif [ ${2} != "" ]; then
     bin/spatial --outdir=${PUB_HOME}/${2} ${1} | tee /tmp/fastlog
     exc=$(cat /tmp/fastlog | grep "Exception in thread" | wc -l)
     if [[ "$?" -ne "0" ]]; then
