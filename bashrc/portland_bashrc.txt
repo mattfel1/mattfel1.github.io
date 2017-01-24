@@ -176,4 +176,3 @@ export PIR_HOME='/home/mattfel/hyperdsl/forge'
 export SPATIAL_HOME='/home/mattfel/hyperdsl/spatial'
 export PUB_HOME='/home/mattfel/hyperdsl/spatial/published/Spatial'
 export PATH=$PATH:'/home/mattfel/firrtl/utils/bin'
-
