@@ -251,6 +251,8 @@ alias p='cd ${PUB_HOME}'
 alias l='cd ${LMS_HOME}'
 alias o='cd ${PUB_HOME}/out'
 alias h='cd ${HYPER_HOME}'
+alias a='cd ${ARGON_HOME}'
+
 export FORGE_HOME='/home/mattfel/hyperdsl/forge'
 export DELITE_HOME='/home/mattfel/hyperdsl/delite'
 export LMS_HOME='/home/mattfel/hyperdsl/virtualization-lms-core'
