@@ -140,9 +140,9 @@ gnome-terminal --profile=elio -e "ssh -X london.stanford.edu ";exit
 # $1 appname
 function app {
   cd ${SPATIAL_HOME}
-  make
+  #make
   # make apps
-  bin/spatial $1 --chisel --outdir=out --emission=2
+  bin/spatial $1 --chisel --outdir=out --emission=2 --multifile=0
   cd out
   make sim
 }
