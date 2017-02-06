@@ -137,6 +137,16 @@ echo "sshing"
 gnome-terminal --profile=elio -e "ssh -X london.stanford.edu ";exit
 }
 
+# $1 appname
+function app {
+  cd ${SPATIAL_HOME}
+  make
+  # make apps
+  bin/spatial $1 --chisel --outdir=out --emission=2
+  cd out
+  make sim
+}
+
 # Arg 1 = appname
 # Arg 2 = directory or debug [dir=out, debug=false by default]
 function fastapp {
