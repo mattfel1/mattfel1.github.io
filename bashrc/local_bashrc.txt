@@ -274,3 +274,4 @@ export PUB_HOME='/home/mattfel/hyperdsl/spatial/published/Spatial'
 export -f hyperdsl
 export PATH=$PATH:'/home/mattfel/firrtl/utils/bin'
 export RISCV='/home/mattfel/rocket-chip/riscv-tools'
+export TEMPLATES_HOME='${SPATIAL_HOME}/src/spatial/codegen/chiselgen/resources/template-level'
