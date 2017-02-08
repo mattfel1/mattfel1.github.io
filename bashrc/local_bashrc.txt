@@ -250,7 +250,7 @@ alias clean_tex='find ~/Dropbox/Shared_Desktop/ResumeTex/. -type f  ! -name "*.t
 alias pingmaxeler='ping -p 3033 portal.maxeler.com'
 alias corn='gnome-terminal --profile=cyclades -e "ssh -X corn.stanford.edu";exit'
 alias myth='gnome-terminal --profile=cyclades -e "ssh -X myth.stanford.edu";exit'
-alias appwave='cd ${PUB_HOME}/out;open_ctrl $(inferapp); gtkwave $(ls -Rt ${PUB_HOME}/out/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+alias appwave='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html; gtkwave $(ls -Rt ${PUB_HOME}/out/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 alias tempwave='gtkwave $(ls -Rt /home/mattfel/hyperdsl/delite/runtime/src/static/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 #alias test='ls -Rt /home/mattfel/hyperdsl/spatial/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1'
 alias templates='cd ~/hyperdsl/delite/runtime/src/static/chisel/'
