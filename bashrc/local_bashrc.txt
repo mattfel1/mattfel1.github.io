@@ -142,7 +142,7 @@ function app {
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=1
+  bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=3
   cd out
   make sim
 }
@@ -216,6 +216,7 @@ alias dot='xdot ~/dhdl/out/dot/outfile.dot &'
 alias run='cd ~/Desktop/dhdl;bin/dhdl '
 alias killpy='pkill -9 -f "python -u"'
 alias sim='cd ~/Desktop/dhdl/;bin/test '
+alias fixmaster='cd ${ARGON_HOME};git checkout master;git merge origin/fpga;git push; cd ${SPATIAL_HOME}; git checkout master; git merge origin/fpga;git push;cd ${ARGON_HOME}; git checkout fpga;cd ${SPATIAL_HOME}; git checkout fpga'
 alias encrypt='7z a -p '
 alias wifi='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 alias run='cd ~/hyperdsl;~/hyperdsl/binary/tst'
@@ -253,7 +254,7 @@ alias myth='gnome-terminal --profile=cyclades -e "ssh -X myth.stanford.edu";exit
 alias appwave='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html; gtkwave $(ls -Rt ${PUB_HOME}/out/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 alias tempwave='gtkwave $(ls -Rt /home/mattfel/hyperdsl/delite/runtime/src/static/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 #alias test='ls -Rt /home/mattfel/hyperdsl/spatial/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1'
-alias templates='cd ~/hyperdsl/delite/runtime/src/static/chisel/'
+alias templates='cd ${TEMPLATES_HOME}'
 alias inferapp='grep -r "// TopModule for application:" . | sed "s/.*\/\/ TopModule for application: //g"'
 alias d='cd ${DELITE_HOME}'
 alias s='cd ${SPATIAL_HOME}'
@@ -269,9 +270,11 @@ export LMS_HOME='/home/mattfel/hyperdsl/virtualization-lms-core'
 export JAVA_HOME='/usr/lib/jvm/java-7-openjdk-amd64'
 export HYPER_HOME='/home/mattfel/hyperdsl'
 export PIR_HOME='/home/mattfel/hyperdsl/forge'
-export SPATIAL_HOME='/home/mattfel/hyperdsl/spatial'
+export SPATIAL_HOME='/home/mattfel/macro/spatial'
 export PUB_HOME='/home/mattfel/hyperdsl/spatial/published/Spatial'
+export ARGON_HOME='/home/mattfel/macro/argon'
+export VIRTUALIZED_HOME='/home/mattfel/macro/scala-virtualized'
 export -f hyperdsl
 export PATH=$PATH:'/home/mattfel/firrtl/utils/bin'
 export RISCV='/home/mattfel/rocket-chip/riscv-tools'
-export TEMPLATES_HOME='${SPATIAL_HOME}/src/spatial/codegen/chiselgen/resources/template-level'
+export TEMPLATES_HOME='/home/mattfel/macro/spatial/src/spatial/codegen/chiselgen/resources/template-level'
