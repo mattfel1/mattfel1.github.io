@@ -148,7 +148,7 @@ function app {
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m
+  bin/spatial $1 --chisel --outdir=out --emission=2 --multifile=$m
   cd out
   make sim
 }
