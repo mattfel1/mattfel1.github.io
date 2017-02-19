@@ -148,7 +148,9 @@ function app {
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  bin/spatial $1 --chisel --outdir=out --emission=2 --multifile=$m
+  cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
   cd out
   make sim
 }
@@ -206,6 +208,8 @@ else
 fi
 }
 
+alias mk='cd ${SPATIAL_HOME};make'
+alias mka='cd ${SPATIAL_HOME};make apps'
 alias screenoff='sudo xinput --disable "ELAN Touchscreen"'
 alias screenon='sudo xinput --enable "ELAN Touchscreen"'
 alias website='cd ~/Dropbox/Shared_Desktop/ResumeTex/;pdflatex ResumeMaster.tex > /dev/null;cp ResumeMaster.pdf ~/mattfel1.github.io/;cd ~/mattfel1.github.io;jekyll build;git add --all;git commit -m "test";git push'
