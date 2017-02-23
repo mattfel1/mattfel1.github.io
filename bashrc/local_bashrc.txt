@@ -141,7 +141,7 @@ gnome-terminal --profile=elio -e "ssh -X london.stanford.edu ";exit
 # $2 optional multifile level
 function app {
   if [[ $2 = "" ]]; then
-    m=3
+    m=4
   else
     m=$2
   fi
