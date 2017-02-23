@@ -225,5 +225,9 @@ export FORGE_HOME=${HYPER_HOME}/forge
 export DELITE_HOME=${HYPER_HOME}/delite
 export LMS_HOME=${HYPER_HOME}/virtualization-lms-core
 export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
-export JAVA_HOME=/usr/
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/bin/java
 export RISCV=/home/mattfel/rocket-chip/riscv-tools
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
+export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre/
+PATH=$JAVA_HOME/bin:"$PATH"
+export JAVA_HOME JRE_HOME
