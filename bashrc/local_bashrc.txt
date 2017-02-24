@@ -148,7 +148,7 @@ function app {
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --chisel --outdir=out --emission=2 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out
@@ -287,6 +287,6 @@ export PUB_HOME='/home/mattfel/hyperdsl/spatial/published/Spatial'
 export ARGON_HOME='/home/mattfel/macro/argon'
 export VIRTUALIZED_HOME='/home/mattfel/macro/scala-virtualized'
 export -f hyperdsl
-export PATH=$PATH:'/home/mattfel/firrtl/utils/bin'
+export PATH='/usr/lib/scala/bin':$PATH:'/home/mattfel/firrtl/utils/bin'
 export RISCV='/home/mattfel/rocket-chip/riscv-tools'
 export TEMPLATES_HOME='/home/mattfel/macro/spatial/src/spatial/codegen/chiselgen/resources/template-level'
