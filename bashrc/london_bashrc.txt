@@ -1,0 +1,234 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+if [ -f !/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+function wave {
+gtkwave ~/crunch/plasticine/generated/${1}Test/${1}.vcd
+}
+
+function run {
+rm -rf ~/crunch/plasticine/generated/${1}Test
+~/crunch/plasticine/bin/sadl --sim --vcd ${1}Test
+}
+
+function fastapp {
+cp -r ${SPATIAL_HOME}/extern/compiler/src/* ${PUB_HOME}/compiler/src/spatial/compiler;cd ${PUB_HOME}/;sbt -DshowSuppressedErrors=true compile
+if [[ "$?" -ne "0" ]]; then
+  echo "messed up compile"
+else
+  if [ ${2} != "" ]; then
+    bin/spatial --outdir=${PUB_HOME}/${2} ${1} | tee /tmp/fastlog
+    exc=$(cat /tmp/fastlog | grep "Exception in thread" | wc -l)
+    if [[ "$?" -ne "0" ]]; then
+      echo "messed up spatial build"
+    elif [[ $exc != 0 ]]; then
+      echo "messed up spatial build"
+    else
+      cd ${PUB_HOME}/${2}
+      make clean sim | grep --color=never -A4 "\[maxjcompiler\] [0-9]\+\. ERROR\|^[^\[]\|\[maxjcompiler\] [0-9]\+ problems"
+    fi
+  else
+    bin/spatial ${1} | tee /tmp/fastlog
+    exc=$(cat /tmp/fastlog | grep "Exception in thread" | wc -l)
+    if [[ "$?" -ne "0" ]]; then 
+      echo "messed up spatial build"
+    elif [[ $exc != 0 ]]; then
+      echo "messed up spatial build"
+    else
+      remk 
+    fi
+  fi
+fi
+}
+
+function freeports {
+stale_sims=(`ps axh -O user,etimes | grep mattfel | grep maxcompilersim  | awk '{if ($3 >= 0) print $1}'`)
+for job in ${stale_sims[@]}; do
+	kill -9 $job
+done
+
+}
+function freesemaphores {
+for semid in `ipcs -s | cut -d" " -f 2` ; do pid=`ipcs -s -i $semid | tail -n 2 | head -n 1 | awk '{print $5}'`; running=`ps --no-headers -p $pid | wc -l` ; if [ $running -eq 0 ] ; then ipcrm -s $semid ; fi ; done
+}
+
+function storemaxeler {
+rsync -avz -e "ssh -p 3033" mfeldman@portal.maxeler.com:/home/mfeldman/$1 /remote/mattfel/
+}
+
+function inferapp {
+echo "Run this fcn in the base output maxj dir to infer which app this is"
+apps=("DotProduct" "MatMult_inner" "TPCHQ6" "BlackScholes" "MatMult_outer"
+	"Kmeans"  "GEMM"      "GDA"    "SGD"   "LogReg" "OuterProduct" 
+        "BFS" "PageRank" "TriangleCounting" "SparseSGD" "TPCHQ1" 
+        "Memcpy2D" "SimpleFold" "Niter" "SimpleReduce" "FifoLoadStore" "ParFifoLoad" "FifoLoad" "SimpleTileLoadStore" "DeviceMemcpy" "FifoPushPop" "ChangingCtrMax" "SequentialWrites" "BubbledWriteTest" "MultiplexedWriteTest" "InOutArg" "ScatterGather" "BlockReduce2D" "UnalignedLd" "BlockReduce1D" "SimpleSequential" "CharBramTest" 
+"CharStoreTest" "CharLoadTest")
+for a in ${apps[@]}; do
+  cnt=(`grep -r "$a" ./maxj | grep -v "makes BFS work\|for BFS" | wc -l`)
+  if [ $cnt -gt 0 ]; then
+    echo "$a has $cnt"
+  fi
+done
+}
+
+function chiselenv() {
+export HYPER_HOME=/home/mattfel/chisel/hyperdsl
+export SPATIAL_HOME=${HYPER_HOME}/spatial
+export PUB_HOME=${SPATIAL_HOME}/published/Spatial
+export FORGE_HOME=${HYPER_HOME}/forge
+export DELITE_HOME=${HYPER_HOME}/delite
+export LMS_HOME=${HYPER_HOME}/virtualization-lms-core
+export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
+}
+
+
+#alias freeports='sudo pkill -f maxcompilersim;pkill -9 -f "Top[a-z]-london"'
+alias usage='cat RunRules/DFE/Top_cmd.log | grep %'
+alias centos='echo "password for root is aaaaaaaa (a x8)";ssh -X mattfel@192.168.122.59'
+alias fastmake='cp -r ${SPATIAL_HOME}/extern/compiler/src/ops/* ${PUB_HOME}/compiler/src/spatial/compiler/ops;cd ${PUB_HOME}/;sbt compile'
+alias forge='cd ${HYPER_HOME}/forge'
+alias lms='cd ${HYPER_HOME}/virtualization-lms-core/'
+alias delite='cd ${HYPER_HOME}/delite'
+alias pub='cd ${PUB_HOME}'
+alias spatial='cd ${SPATIAL_HOME}'
+alias vm='ssh -X mattfel@192.168.122.59'
+alias open='xdg-open'
+alias mntmaxeler='sudo sshfs mfeldman@portal.maxeler.com:/home/mfeldman /mnt/maxeler -p 3033 -o allow_other,IdentityFile=~/.ssh/id_rsa'
+alias cleanpull='git fetch origin master;git reset --hard FETCH_HEAD;git clean -df'
+alias info='maxNodeInfo Top_MAX4848A_DFE_SIM/scratch/MaxCompilerDesignData.dat'
+
+export ALTERAOCLSDKROOT="/opt/altera/hld"
+export LM_LICENSE_FILE=/opt/altera/license/1-ECLIAL_License.dat
+export PATH=/opt/altera/quartus/bin:$PATH
+export PATH=/opt/maxeler/bin:$PATH
+export MAXCOMPILERDIR=/opt/maxcompiler/
+export PATH=/opt/maxcompiler/bin:$PATH
+export MAXELEROSDIR=/opt/maxcompiler/lib/maxeleros-sim
+#export MAXCOMPILERDIR=/opt/maxcompiler2016/
+#export PATH=/opt/maxcompiler2016/bin:$PATH
+#export MAXELEROSDIR=/opt/maxcompiler2016/lib/maxeleros-sim
+export HYPER_HOME=/home/mattfel/hyperdsl
+export SPATIAL_HOME=${HYPER_HOME}/spatial
+export PUB_HOME=${SPATIAL_HOME}/published/Spatial
+export FORGE_HOME=${HYPER_HOME}/forge
+export DELITE_HOME=${HYPER_HOME}/delite
+export LMS_HOME=${HYPER_HOME}/virtualization-lms-core
+export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+source /opt/maxcompiler/settings.sh
+

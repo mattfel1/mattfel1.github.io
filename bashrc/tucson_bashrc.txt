@@ -229,5 +229,6 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/bin/java
 export RISCV=/home/mattfel/rocket-chip/riscv-tools
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
 export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre/
-PATH=$JAVA_HOME/bin:"$PATH"
+export SCALA_HOME=/usr/lib/scala/bin
+PATH=$JAVA_HOME/bin:${SCALA_HOME}:"$PATH"
 export JAVA_HOME JRE_HOME

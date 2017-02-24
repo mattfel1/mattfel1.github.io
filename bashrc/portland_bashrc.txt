@@ -39,7 +39,25 @@ fi
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
-force_color_prompt=yes
+
+
+# $1 appname
+# $2 optional multifile level
+function app {
+  if [[ $2 = "" ]]; then
+    m=4
+  else
+    m=$2
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
+  cd out
+  make sim
+}
 
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -115,64 +133,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-function fastapp {
-cp -r ${SPATIAL_HOME}/extern/compiler/src/* ${PUB_HOME}/compiler/src/spatial/compiler;cd ${PUB_HOME}/;sbt -DshowSuppressedErrors=true compile
-if [[ "$?" -ne "0" ]]; then
-  echo "messed up compile"
-else
-  bin/spatial ${1}
-  if [[ "$?" -ne "0" ]]; then
-    echo "messed up spatial build"
-  else
-    remk
-  fi
-fi
-}
-
-function freeports {
-stale_sims=(`ps axh -O user,etimes | grep mattfel | grep maxcompilersim  | awk '{if ($3 >= 0) print $1}'`)
-for job in ${stale_sims[@]}; do
-        kill -9 $job
-done
-
-}
-
-
-function freesemaphores {
-for semid in `ipcs -s | cut -d" " -f 2` ; do pid=`ipcs -s -i $semid | tail -n 2 | head -n 1 | awk '{print $5}'`; running=`ps --no-headers -p $pid | wc -l` ; if [ $running -eq 0 ] ; then ipcrm -s $semid ; fi ; done
-}
-
-function storemaxeler {
-rsync -avz -e "ssh -p 3033" mfeldman@portal.maxeler.com:/home/mfeldman/$1 /remote/mattfel/
-}
-
-function remk {
-cd ${PUB_HOME}/out
-make clean
-branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
-branch_name="(unnamed branch)"     # detached HEAD
-branch_name=${branch_name##refs/heads/}
-if [[ $branch_name = "maxj" ]]; then
-  ant
-  # Patch makefile, Because ant won't run inside a makefile if I set the symlinks correctly
-  sed -i "s/JAVA_HOME = \/usr\/lib\/jvm\/java-7-openjdk-amd64/JAVA_HOME = \/usr/g" Makefile
-  sed -i "s/ant/#\/usr\/share\/ant\/bin\/ant/g" Makefile
-  sed -i '4i J_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.40.x86_64' Makefile
-  sed -i "s/-I\$(JAVA_HOME)\/include -I\$(JAVA_HOME)\/include\/linux/-I\$(J_HOME)\/include -I\$(J_HOME)\/include\/linux/g" Makefile
-  make sim | grep --color=never -A4 "\[maxjcompiler\] [0-9]\+\. ERROR\|^[^\[]\|\[maxjcompiler\] [0-9]\+ problems"
-else
-  make sim
-fi
-
-}
-
-alias inferapp='grep -r "// TopModule for application:" . | sed "s/.*\/\/ TopModule for application: //g"'
-export FORGE_HOME='/home/mattfel/hyperdsl/forge'
-export DELITE_HOME='/home/mattfel/hyperdsl/delite'
-export LMS_HOME='/home/mattfel/hyperdsl/virtualization-lms-core'
-export JAVA_HOME='/usr'
-export HYPER_HOME='/home/mattfel/hyperdsl'
-export PIR_HOME='/home/mattfel/hyperdsl/forge'
-export SPATIAL_HOME='/home/mattfel/hyperdsl/spatial'
-export PUB_HOME='/home/mattfel/hyperdsl/spatial/published/Spatial'
-export PATH=$PATH:'/home/mattfel/firrtl/utils/bin'
+export SPATIAL_HOME='/home/mattfel/macro/spatial'
+export PUB_HOME='/home/macro/spatial/out'
+export ARGON_HOME='/home/mattfel/macro/argon'
+export VIRTUALIZED_HOME='/home/mattfel/macro/scala-virtualized'
+export JAVA_HOME='/usr/'
