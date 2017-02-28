@@ -148,7 +148,7 @@ function app {
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  cmd="bin/spatial $1 --chisel --outdir=out --emission=2 --multifile=$m"
+  cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out
