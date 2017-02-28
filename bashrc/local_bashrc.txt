@@ -198,6 +198,9 @@ else
 fi
 }
 
+function locate {
+  grep -r "$1" ${PUB_HOME}
+}
 
 function open_ctrl {
 if [ -z $1 ]; then
@@ -261,7 +264,7 @@ alias clean_tex='find ~/Dropbox/Shared_Desktop/ResumeTex/. -type f  ! -name "*.t
 alias pingmaxeler='ping -p 3033 portal.maxeler.com'
 alias corn='gnome-terminal --profile=cyclades -e "ssh -X corn.stanford.edu";exit'
 alias myth='gnome-terminal --profile=cyclades -e "ssh -X myth.stanford.edu";exit'
-alias appwave='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html; gtkwave $(ls -Rt ${PUB_HOME}/out/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+alias appwave='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html; gtkwave $(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 alias tree='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html &'
 #alias tempwave='gtkwave $(ls -Rt /home/mattfel/hyperdsl/delite/runtime/src/static/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 alias tempwave='gtkwave $(ls -Rt /home/mattfel/macro/spatial/src/spatial/codegen/chiselgen/resources/template-level/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
@@ -283,7 +286,7 @@ export JAVA_HOME='/usr' #/jvm/java-7-openjdk-amd64'
 export HYPER_HOME='/home/mattfel/hyperdsl'
 export PIR_HOME='/home/mattfel/hyperdsl/forge'
 export SPATIAL_HOME='/home/mattfel/macro/spatial'
-export PUB_HOME='/home/mattfel/hyperdsl/spatial/published/Spatial'
+export PUB_HOME='/home/mattfel/macro/spatial/out'
 export ARGON_HOME='/home/mattfel/macro/argon'
 export VIRTUALIZED_HOME='/home/mattfel/macro/scala-virtualized'
 export -f hyperdsl
