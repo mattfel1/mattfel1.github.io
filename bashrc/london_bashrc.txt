@@ -171,6 +171,44 @@ function storemaxeler {
 rsync -avz -e "ssh -p 3033" mfeldman@portal.maxeler.com:/home/mfeldman/$1 /remote/mattfel/
 }
 
+# $1 appname
+# $2 optional multifile level
+function app2 {
+  if [[ $2 = "" ]]; then
+    m=4
+  else
+    m=$2
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  cmd="bin/spatial $1 --chisel --outdir=out2 --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
+  cd out2
+  make sim
+}
+
+
+# $1 appname
+# $2 optional multifile level
+function app {
+  if [[ $2 = "" ]]; then
+    m=4
+  else
+    m=$2
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
+  cd out
+  make sim
+}
+
+
 function inferapp {
 echo "Run this fcn in the base output maxj dir to infer which app this is"
 apps=("DotProduct" "MatMult_inner" "TPCHQ6" "BlackScholes" "MatMult_outer"
@@ -211,6 +249,10 @@ alias open='xdg-open'
 alias mntmaxeler='sudo sshfs mfeldman@portal.maxeler.com:/home/mfeldman /mnt/maxeler -p 3033 -o allow_other,IdentityFile=~/.ssh/id_rsa'
 alias cleanpull='git fetch origin master;git reset --hard FETCH_HEAD;git clean -df'
 alias info='maxNodeInfo Top_MAX4848A_DFE_SIM/scratch/MaxCompilerDesignData.dat'
+alias mk='cd ${SPATIAL_HOME};make'
+alias mka='cd ${SPATIAL_HOME};make apps'
+alias appwave='gtkwave ${PUB_HOME}/DUT.vcd' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+alias tree='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html &'
 
 export ALTERAOCLSDKROOT="/opt/altera/hld"
 export LM_LICENSE_FILE=/opt/altera/license/1-ECLIAL_License.dat
@@ -222,13 +264,18 @@ export MAXELEROSDIR=/opt/maxcompiler/lib/maxeleros-sim
 #export MAXCOMPILERDIR=/opt/maxcompiler2016/
 #export PATH=/opt/maxcompiler2016/bin:$PATH
 #export MAXELEROSDIR=/opt/maxcompiler2016/lib/maxeleros-sim
-export HYPER_HOME=/home/mattfel/hyperdsl
-export SPATIAL_HOME=${HYPER_HOME}/spatial
-export PUB_HOME=${SPATIAL_HOME}/published/Spatial
-export FORGE_HOME=${HYPER_HOME}/forge
-export DELITE_HOME=${HYPER_HOME}/delite
-export LMS_HOME=${HYPER_HOME}/virtualization-lms-core
-export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-source /opt/maxcompiler/settings.sh
+#export HYPER_HOME=/home/mattfel/hyperdsl
+#export SPATIAL_HOME=${HYPER_HOME}/spatial
+#export PUB_HOME=${SPATIAL_HOME}/published/Spatial
+#export FORGE_HOME=${HYPER_HOME}/forge
+#export DELITE_HOME=${HYPER_HOME}/delite
+#export LMS_HOME=${HYPER_HOME}/virtualization-lms-core
+#export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
+export SPATIAL_HOME='/home/mattfel/macro/spatial'
+export PUB_HOME='/home/mattfel/macro/spatial/out'
+export ARGON_HOME='/home/mattfel/macro/argon'
+export VIRTUALIZED_HOME='/home/mattfel/macro/scala-virtualized'
+export JAVA_HOME=$(readlink -f $(dirname $(readlink -f $(which java)))/../../)
+
+#source /opt/maxcompiler/settings.sh
 
