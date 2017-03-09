@@ -139,6 +139,25 @@ gnome-terminal --profile=elio -e "ssh -X london.stanford.edu ";exit
 
 # $1 appname
 # $2 optional multifile level
+function app2 {
+  if [[ $2 = "" ]]; then
+    m=4
+  else
+    m=$2
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  cmd="bin/spatial $1 --chisel --outdir=out2 --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
+  cd out2
+  make sim
+}
+
+
+# $1 appname
+# $2 optional multifile level
 function app {
   if [[ $2 = "" ]]; then
     m=4
