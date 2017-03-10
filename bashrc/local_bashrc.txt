@@ -221,6 +221,13 @@ function locate {
   grep -r "$1" ${PUB_HOME}
 }
 
+function env_london {
+export SPATIAL_HOME='/mnt/london/macro/spatial'
+export PUB_HOME='/mnt/london/macro/spatial/out'
+export ARGON_HOME='/mnt/london/macro/argon'
+export VIRTUALIZED_HOME='/mnt/london/macro/scala-virtualized'
+}
+
 function halide {
   cd ~/Dropbox/CS243/cs243-hw6/
   if [[ $1 = 1 ]]; then
