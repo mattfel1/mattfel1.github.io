@@ -133,6 +133,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+alias reg='cd /remote/regression/chisel'
+alias inflight='echo "Tests in flight:";ll /remote/regression/chisel | grep "ack\|new\|lock" | wc -l'
 export SPATIAL_HOME='/home/mattfel/macro/spatial'
 export PUB_HOME='/home/macro/spatial/out'
 export ARGON_HOME='/home/mattfel/macro/argon'
