@@ -294,6 +294,7 @@ export PUB_HOME='/home/mattfel/macro/spatial/out'
 export ARGON_HOME='/home/mattfel/macro/argon'
 export VIRTUALIZED_HOME='/home/mattfel/macro/scala-virtualized'
 export JAVA_HOME=$(readlink -f $(dirname $(readlink -f $(which java)))/../../)
-
-#source /opt/maxcompiler/settings.sh
+export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
+export PATH=$VCS_HOME/amd64/bin:$PATH
+export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
 
