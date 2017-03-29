@@ -297,4 +297,4 @@ export JAVA_HOME=$(readlink -f $(dirname $(readlink -f $(which java)))/../../)
 export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
 export PATH=$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
-
+export TEMPLATES_HOME=/home/mattfel/macro/spatial/src/spatial/codegen/chiselgen/resources/template-level
