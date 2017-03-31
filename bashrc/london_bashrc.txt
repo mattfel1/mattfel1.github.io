@@ -226,6 +226,61 @@ function app {
   make sim
 }
 
+# $1 appname
+# $2 optional multifile level
+function vapp3 {
+  if [[ $2 = "" ]]; then
+    m=4
+  else
+    m=$2
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  cmd="bin/spatial $1 --chisel --outdir=out3 --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
+  cd out3
+  make vcs
+}
+
+# $1 appname
+# $2 optional multifile level
+function vapp2 {
+  if [[ $2 = "" ]]; then
+    m=4
+  else
+    m=$2
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  cmd="bin/spatial $1 --chisel --outdir=out2 --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
+  cd out2
+  make vcs
+}
+
+
+# $1 appname
+# $2 optional multifile level
+function vapp {
+  if [[ $2 = "" ]]; then
+    m=4
+  else
+    m=$2
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
+  cd out
+  make vcs
+}
+
 
 function inferapp {
 echo "Run this fcn in the base output maxj dir to infer which app this is"
@@ -271,7 +326,7 @@ alias mk='cd ${SPATIAL_HOME};make'
 alias mka='cd ${SPATIAL_HOME};make apps'
 alias appwave='gtkwave ${PUB_HOME}/DUT.vcd' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 alias tree='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html &'
-
+alias k='pkill -f -9 accel'
 export ALTERAOCLSDKROOT="/opt/altera/hld"
 export LM_LICENSE_FILE=/opt/altera/license/1-ECLIAL_License.dat
 export PATH=/opt/altera/quartus/bin:$PATH
