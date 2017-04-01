@@ -219,10 +219,10 @@ export MAXELEROSDIR=/opt/maxcompiler2016/lib/maxeleros-sim;export MAXCOMPILERDIR
 #export MAXELEROSDIR=/opt/maxeler/maxcompiler-2014.1/lib/maxeleros-sim;export MAXCOMPILERDIR=/opt/maxeler/maxcompiler-2014.1/;export PATH=$PATH:/opt/maxeler/maxcompiler-2014.1/bin
 #export MAXELEROSDIR=/opt/maxcompiler_oldlib/lib/maxeleros-sim;export MAXCOMPILERDIR=/opt/maxcompiler_oldlib;export PATH=$PATH:/opt/maxcompiler_oldlib/bin
 export HYPER_HOME=${HOME}/hyperdsl
-export SPATIAL_HOME=${HYPER_HOME}/spatial
-export PUB_HOME=${SPATIAL_HOME}/published/Spatial
-export FORGE_HOME=${HYPER_HOME}/forge
-export DELITE_HOME=${HYPER_HOME}/delite
+#export SPATIAL_HOME=${HYPER_HOME}/spatial
+#export PUB_HOME=${SPATIAL_HOME}/published/Spatial
+#export FORGE_HOME=${HYPER_HOME}/forge
+#export DELITE_HOME=${HYPER_HOME}/delite
 export LMS_HOME=${HYPER_HOME}/virtualization-lms-core
 export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre/bin/java
@@ -232,3 +232,8 @@ export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre/
 export SCALA_HOME=/usr/lib/scala/bin
 PATH=$JAVA_HOME/bin:${SCALA_HOME}:"$PATH"
 export JAVA_HOME JRE_HOME
+
+export SPATIAL_HOME=/home/mattfel/macro/spatial-lang
+export ARGON_HOME=/home/mattfel/macro/argon
+export VIRTUALIZED_HOME=${ARGON_HOME}/scala-virtualized
+export PUB_HOME=${SPATIAL_HOME}/out
