@@ -228,6 +228,24 @@ function app {
 
 # $1 appname
 # $2 optional multifile level
+function vapp4 {
+  if [[ $2 = "" ]]; then
+    m=4
+  else
+    m=$2
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  cmd="bin/spatial $1 --chisel --outdir=out4 --emission=1 --multifile=$m"
+  echo "$cmd"
+  eval "$cmd"
+  cd out4
+  make vcs
+}
+
+# $1 appname
+# $2 optional multifile level
 function vapp3 {
   if [[ $2 = "" ]]; then
     m=4
@@ -353,3 +371,4 @@ export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
 export PATH=/usr/bin:$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
 export TEMPLATES_HOME=/home/mattfel/macro/spatial/src/spatial/codegen/chiselgen/resources/template-level
+export USE_IDEAL_DRAM=0
