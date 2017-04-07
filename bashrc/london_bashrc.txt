@@ -301,18 +301,20 @@ function vapp {
 
 
 function inferapp {
-echo "Run this fcn in the base output maxj dir to infer which app this is"
-apps=("DotProduct" "MatMult_inner" "TPCHQ6" "BlackScholes" "MatMult_outer"
-	"Kmeans"  "GEMM"      "GDA"    "SGD"   "LogReg" "OuterProduct" 
-        "BFS" "PageRank" "TriangleCounting" "SparseSGD" "TPCHQ1" 
-        "Memcpy2D" "SimpleFold" "Niter" "SimpleReduce" "FifoLoadStore" "ParFifoLoad" "FifoLoad" "SimpleTileLoadStore" "DeviceMemcpy" "FifoPushPop" "ChangingCtrMax" "SequentialWrites" "BubbledWriteTest" "MultiplexedWriteTest" "InOutArg" "ScatterGather" "BlockReduce2D" "UnalignedLd" "BlockReduce1D" "SimpleSequential" "CharBramTest" 
-"CharStoreTest" "CharLoadTest")
-for a in ${apps[@]}; do
-  cnt=(`grep -r "$a" ./maxj | grep -v "makes BFS work\|for BFS" | wc -l`)
-  if [ $cnt -gt 0 ]; then
-    echo "$a has $cnt"
-  fi
-done
+#echo "Run this fcn in the base output maxj dir to infer which app this is"
+#apps=("DotProduct" "MatMult_inner" "TPCHQ6" "BlackScholes" "MatMult_outer"
+#	"Kmeans"  "GEMM"      "GDA"    "SGD"   "LogReg" "OuterProduct" 
+#        "BFS" "PageRank" "TriangleCounting" "SparseSGD" "TPCHQ1" 
+#        "Memcpy2D" "SimpleFold" "Niter" "SimpleReduce" "FifoLoadStore" "ParFifoLoad" "FifoLoad" "SimpleTileLoadStore" "DeviceMemcpy" "FifoPushPop" "ChangingCtrMax" "SequentialWrites" "BubbledWriteTest" "MultiplexedWriteTest" "InOutArg" "ScatterGather" "BlockReduce2D" "UnalignedLd" "BlockReduce1D" "SimpleSequential" "CharBramTest" 
+#"CharStoreTest" "CharLoadTest")
+#for a in ${apps[@]}; do
+#  cnt=(`grep -r "$a" ./maxj | grep -v "makes BFS work\|for BFS" | wc -l`)
+#  if [ $cnt -gt 0 ]; then
+#    echo "$a has $cnt"
+#  fi
+#done
+cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g'
+
 }
 
 function chiselenv() {
@@ -370,5 +372,5 @@ export JAVA_HOME=$(readlink -f $(dirname $(readlink -f $(which java)))/../../)
 export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
 export PATH=/usr/bin:$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
-export TEMPLATES_HOME=/home/mattfel/macro/spatial/src/spatial/codegen/chiselgen/resources/template-level
+export TEMPLATES_HOME=${SPATIAL_HOME}/spatial/core/resources/chiselgen/template-level
 export USE_IDEAL_DRAM=0
