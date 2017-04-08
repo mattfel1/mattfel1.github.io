@@ -237,6 +237,7 @@ function vapp4 {
   cd ${SPATIAL_HOME}
   #make
   # make apps
+  rm -rf out4
   cmd="bin/spatial $1 --chisel --outdir=out4 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
@@ -255,6 +256,7 @@ function vapp3 {
   cd ${SPATIAL_HOME}
   #make
   # make apps
+  rm -rf out3
   cmd="bin/spatial $1 --chisel --outdir=out3 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
@@ -273,6 +275,7 @@ function vapp2 {
   cd ${SPATIAL_HOME}
   #make
   # make apps
+  rm -rf out2
   cmd="bin/spatial $1 --chisel --outdir=out2 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
@@ -292,6 +295,7 @@ function vapp {
   cd ${SPATIAL_HOME}
   #make
   # make apps
+  rm -rf out
   cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
