@@ -182,7 +182,7 @@ function app3 {
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  cmd="bin/spatial $1 --chisel --outdir=out3 --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out3 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out3
@@ -200,7 +200,7 @@ function app2 {
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  cmd="bin/spatial $1 --chisel --outdir=out2 --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out2 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out2
@@ -219,7 +219,7 @@ function app {
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out
@@ -238,7 +238,7 @@ function vapp4 {
   #make
   # make apps
   rm -rf out4
-  cmd="bin/spatial $1 --chisel --outdir=out4 --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out4 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out4
@@ -257,7 +257,7 @@ function vapp3 {
   #make
   # make apps
   rm -rf out3
-  cmd="bin/spatial $1 --chisel --outdir=out3 --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out3 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out3
@@ -276,7 +276,7 @@ function vapp2 {
   #make
   # make apps
   rm -rf out2
-  cmd="bin/spatial $1 --chisel --outdir=out2 --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out2 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out2
@@ -296,7 +296,7 @@ function vapp {
   #make
   # make apps
   rm -rf out
-  cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out
@@ -368,7 +368,7 @@ export MAXELEROSDIR=/opt/maxcompiler/lib/maxeleros-sim
 #export DELITE_HOME=${HYPER_HOME}/delite
 #export LMS_HOME=${HYPER_HOME}/virtualization-lms-core
 #export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
-export SPATIAL_HOME='/home/mattfel/macro/spatial-lang'
+export SPATIAL_HOME='/home/mattfel/spatial-lang'
 export PUB_HOME='/home/mattfel/macro/spatial/out'
 export ARGON_HOME='${SPATIAL_HOME}/argon'
 export VIRTUALIZED_HOME='${SPATIAL_HOME}/scala-virtualized'
