@@ -182,6 +182,7 @@ function app3 {
   cd ${SPATIAL_HOME}
   #make
   # make apps
+  rm -rf out3
   cmd="bin/spatial $1 --synth --out=out3 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
@@ -198,6 +199,7 @@ function app2 {
     m=$2
   fi
   cd ${SPATIAL_HOME}
+  rm -rf out2
   #make
   # make apps
   cmd="bin/spatial $1 --synth --out=out2 --emission=1 --multifile=$m"
@@ -218,6 +220,7 @@ function app {
   fi
   cd ${SPATIAL_HOME}
   #make
+  rm -rf out
   # make apps
   cmd="bin/spatial $1 --synth --out=out --emission=1 --multifile=$m"
   echo "$cmd"
@@ -238,7 +241,7 @@ function vapp4 {
   #make
   # make apps
   rm -rf out4
-  cmd="bin/spatial $1 --synth --out=out4 --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out4 --naming --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out4
@@ -257,7 +260,7 @@ function vapp3 {
   #make
   # make apps
   rm -rf out3
-  cmd="bin/spatial $1 --synth --out=out3 --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out3 --naming --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out3
@@ -276,7 +279,7 @@ function vapp2 {
   #make
   # make apps
   rm -rf out2
-  cmd="bin/spatial $1 --synth --out=out2 --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out2 --naming --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out2
@@ -296,7 +299,7 @@ function vapp {
   #make
   # make apps
   rm -rf out
-  cmd="bin/spatial $1 --synth --out=out --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out --naming --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out
