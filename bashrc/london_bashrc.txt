@@ -230,18 +230,16 @@ function app {
 }
 
 # $1 appname
-# $2 optional multifile level
+# $2 multifile level (0 = onefile,noscope, 4 = multifile)
+# $3 retiming (0 or 1)
 function vapp4 {
-  if [[ $2 = "" ]]; then
-    m=4
-  else
-    m=$2
-  fi
-  cd ${SPATIAL_HOME}
+m = $2
+r = $3  
+cd ${SPATIAL_HOME}
   #make
   # make apps
   rm -rf out4
-  cmd="bin/spatial $1 --synth --out=out4 --naming --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out4 --naming --emission=1 --multifile=$m --retiming=$r"
   echo "$cmd"
   eval "$cmd"
   cd out4
@@ -251,16 +249,13 @@ function vapp4 {
 # $1 appname
 # $2 optional multifile level
 function vapp3 {
-  if [[ $2 = "" ]]; then
-    m=4
-  else
-    m=$2
-  fi
+m = $2
+r = $3  
   cd ${SPATIAL_HOME}
   #make
   # make apps
   rm -rf out3
-  cmd="bin/spatial $1 --synth --out=out3 --naming --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out3 --naming --emission=1 --multifile=$m --retiming=$r"
   echo "$cmd"
   eval "$cmd"
   cd out3
@@ -270,16 +265,13 @@ function vapp3 {
 # $1 appname
 # $2 optional multifile level
 function vapp2 {
-  if [[ $2 = "" ]]; then
-    m=4
-  else
-    m=$2
-  fi
+m = $2
+r = $3  
   cd ${SPATIAL_HOME}
   #make
   # make apps
   rm -rf out2
-  cmd="bin/spatial $1 --synth --out=out2 --naming --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out2 --naming --emission=1 --multifile=$m --retiming=$r"
   echo "$cmd"
   eval "$cmd"
   cd out2
@@ -290,16 +282,13 @@ function vapp2 {
 # $1 appname
 # $2 optional multifile level
 function vapp {
-  if [[ $2 = "" ]]; then
-    m=4
-  else
-    m=$2
-  fi
+m = $2
+r = $3  
   cd ${SPATIAL_HOME}
   #make
   # make apps
   rm -rf out
-  cmd="bin/spatial $1 --synth --out=out --naming --emission=1 --multifile=$m"
+  cmd="bin/spatial $1 --synth --out=out --naming --emission=1 --multifile=$m --retiming=$r"
   echo "$cmd"
   eval "$cmd"
   cd out
