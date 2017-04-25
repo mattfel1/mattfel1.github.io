@@ -337,6 +337,7 @@ export PIR_HOME=${HYPER_HOME}/spatial/published/Spatial
 
 
 #alias freeports='sudo pkill -f maxcompilersim;pkill -9 -f "Top[a-z]-london"'
+alias git='if [[ -f /home/mattfel/spatial-lang/.git/modules/argon/index.lock ]]; then rm /home/mattfel/spatial-lang/.git/modules/argon/index.lock; fi; if [[ -f /home/mattfel/spatial-lang/.git/index.lock ]]; then rm /home/mattfel/spatial-lang/.git/index.lock; fi; git'
 alias usage='cat RunRules/DFE/Top_cmd.log | grep %'
 alias centos='echo "password for root is aaaaaaaa (a x8)";ssh -X mattfel@192.168.122.59'
 alias fastmake='cp -r ${SPATIAL_HOME}/extern/compiler/src/ops/* ${PUB_HOME}/compiler/src/spatial/compiler/ops;cd ${PUB_HOME}/;sbt compile'
