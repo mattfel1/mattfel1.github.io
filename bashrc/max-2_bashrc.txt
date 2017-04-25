@@ -152,8 +152,8 @@ alias copymax='ssh -p 3033 mfeldman@portal.maxeler.com rm -rf /home/mfeldman/max
 alias ee282='cd ~/ee282/proj1/datadump'
 alias fix1='python ~/maxj1/fix.py'
 alias python=/usr/local/bin/python2.7
-alias reg='cd /remote/regression/scala'
-alias inflight='echo "Tests in flight:";ll /remote/regression/scala | grep "ack\|new\|lock" | wc -l'
+alias reg='cd /kunle/users/mattfel/regression/scala'
+alias inflight='echo "Tests in flight:";ll /kunle/users/mattfel/regression/scala | grep "ack\|new\|lock" | wc -l'
 
 export LM_LICENSE_FILE=/opt/altera/license/1-DL6BC3_License.dat
 export PATH=$PATH:/opt/altera/13.1/quartus/bin/
