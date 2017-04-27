@@ -230,6 +230,19 @@ function app {
 }
 
 # $1 appname
+function vdot {
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf gen/$1
+  cmd="bin/spatial $1 --dot --naming --emission=1 --retiming --detail=1"
+  echo "$cmd"
+  eval "$cmd"
+  cd gen/$1/dot
+  xdot main.dot
+}
+
+# $1 appname
 # $2 multifile level (0 = onefile,noscope, 4 = multifile)
 # $3 retiming (0 or 1)
 function vapp4 {
