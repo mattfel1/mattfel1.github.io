@@ -245,6 +245,46 @@ function vdot {
 # $1 appname
 # $2 multifile level (0 = onefile,noscope, 4 = multifile)
 # $3 retiming (0 or 1)
+function vapp6 {
+  m=$2
+  r=''
+  if [[ $3 = "1" ]]; then
+    r='--retiming'
+  fi 
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out6
+  cmd="bin/spatial $1 --synth --out=out6 --naming --emission=1 --multifile=$m $r"
+  echo "$cmd"
+  eval "$cmd"
+  cd out4
+  make vcs
+}
+
+# $1 appname
+# $2 multifile level (0 = onefile,noscope, 4 = multifile)
+# $3 retiming (0 or 1)
+function vapp5 {
+  m=$2
+  r=''
+  if [[ $3 = "1" ]]; then
+    r='--retiming'
+  fi 
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out5
+  cmd="bin/spatial $1 --synth --out=out5 --naming --emission=1 --multifile=$m $r"
+  echo "$cmd"
+  eval "$cmd"
+  cd out4
+  make vcs
+}
+
+# $1 appname
+# $2 multifile level (0 = onefile,noscope, 4 = multifile)
+# $3 retiming (0 or 1)
 function vapp4 {
   m=$2
   r=''
@@ -400,3 +440,4 @@ export PATH=/usr/bin:$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
 export TEMPLATES_HOME=${SPATIAL_HOME}/spatial/core/resources/chiselgen/template-level
 export USE_IDEAL_DRAM=0
+export _JAVA_OPTIONS="-Xmx16g"
