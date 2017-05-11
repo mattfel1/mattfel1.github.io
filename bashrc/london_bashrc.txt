@@ -258,7 +258,7 @@ function vapp6 {
   cmd="bin/spatial $1 --synth --out=out6 --naming --emission=1 --multifile=$m $r"
   echo "$cmd"
   eval "$cmd"
-  cd out4
+  cd out6
   make vcs
 }
 
@@ -278,7 +278,7 @@ function vapp5 {
   cmd="bin/spatial $1 --synth --out=out5 --naming --emission=1 --multifile=$m $r"
   echo "$cmd"
   eval "$cmd"
-  cd out4
+  cd out5
   make vcs
 }
 
