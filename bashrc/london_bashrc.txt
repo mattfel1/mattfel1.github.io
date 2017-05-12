@@ -242,6 +242,12 @@ function vdot {
   xdot main.dot
 }
 
+function waveon {
+  sed -i '240s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '241s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '242s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+}
+
 # $1 appname
 # $2 multifile level (0 = onefile,noscope, 4 = multifile)
 # $3 retiming (0 or 1)
