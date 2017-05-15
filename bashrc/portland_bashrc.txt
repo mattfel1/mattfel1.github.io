@@ -59,6 +59,11 @@ function app {
   make sim
 }
 
+function waveon {
+  sed -i '240s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '241s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '242s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+}
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
