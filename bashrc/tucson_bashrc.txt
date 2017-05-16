@@ -177,6 +177,91 @@ stubborn_delete() {
   rm -rf $1
 }
 
+dapp() {
+  m=$2
+  r=''
+  if [[ $3 = "1" ]]; then
+    r='--retiming'
+  fi  
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out
+  cmd="bin/spatial $1 --synth --out=out --naming --emission=1 --multifile=$m $r"
+  echo "$cmd"
+  eval "$cmd"
+  cd out
+  make de1soc
+}
+dapp2() {
+  m=$2
+  r=''
+  if [[ $3 = "1" ]]; then
+    r='--retiming'
+  fi  
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out2
+  cmd="bin/spatial $1 --synth --out=out2 --naming --emission=1 --multifile=$m $r"
+  echo "$cmd"
+  eval "$cmd"
+  cd out2
+  make de1soc
+}
+
+dapp3() {
+  m=$2
+  r=''
+  if [[ $3 = "1" ]]; then
+    r='--retiming'
+  fi  
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out3
+  cmd="bin/spatial $1 --synth --out=out3 --naming --emission=1 --multifile=$m $r"
+  echo "$cmd"
+  eval "$cmd"
+  cd out3
+  make de1soc
+}
+
+dapp4() {
+  m=$2
+  r=''
+  if [[ $3 = "1" ]]; then
+    r='--retiming'
+  fi  
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out4
+  cmd="bin/spatial $1 --synth --out=out4 --naming --emission=1 --multifile=$m $r"
+  echo "$cmd"
+  eval "$cmd"
+  cd out4
+  make de1soc
+}
+
+dapp() {
+  m=$2
+  r=''
+  if [[ $3 = "1" ]]; then
+    r='--retiming'
+  fi  
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out
+  cmd="bin/spatial $1 --synth --out=out --naming --emission=1 --multifile=$m $r"
+  echo "$cmd"
+  eval "$cmd"
+  cd out
+  make de1soc
+}
+
+
 inferapp() {
 ## MODERN WAY
 grep -r "TopKernelLib for app" ./maxj
@@ -213,8 +298,11 @@ alias getcycles='find . -name "debug_printf.txt" -exec cat {} + | grep cycles'
 alias copymax='ssh -p 3033 mfeldman@portal.maxeler.com rm -rf /home/mfeldman/maxj;scp -P 3033 -r ~/maxj mfeldman@portal.maxeler.com:/home/mfeldman/'
 alias usage='cat RunRules/DFE/Top_cmd.log | grep %'
 alias mk2014='export MAXELEROSDIR=/opt/maxeler/maxcompiler-2014.1/lib/maxeleros-sim;export MAXCOMPILERDIR=/opt/maxeler/maxcompiler-2014.1/;export PATH=$PATH:/opt/maxeler/maxcompiler-2014.1/bin;make clean sim;. ~/.bashrc;echo "Remember you need the 2014 vars when you run.sh too"'
+alias cpde1='scp -r prog de1@de1soc:'
+alias gettop='cd verilog-de1soc/simulation; cp ~/spatial-lang/Top_tb.v .'
 export LM_LICENSE_FILE=7195@cadlic0.stanford.edu:$LM_LICENSE_FILE
-export PATH=$PATH:/opt/altera/13.1/quartus/bin/
+#export PATH=$PATH:/opt/altera/13.1/quartus/bin/
+export PATH=$PATH:/opt/intelFPGA_lite/16.1/quartus/bin
 export MAXELEROSDIR=/opt/maxcompiler2016/lib/maxeleros-sim;export MAXCOMPILERDIR=/opt/maxcompiler2016;export PATH=$PATH:/opt/maxcompiler2016/bin
 #export MAXELEROSDIR=/opt/maxeler/maxcompiler-2014.1/lib/maxeleros-sim;export MAXCOMPILERDIR=/opt/maxeler/maxcompiler-2014.1/;export PATH=$PATH:/opt/maxeler/maxcompiler-2014.1/bin
 #export MAXELEROSDIR=/opt/maxcompiler_oldlib/lib/maxeleros-sim;export MAXCOMPILERDIR=/opt/maxcompiler_oldlib;export PATH=$PATH:/opt/maxcompiler_oldlib/bin
@@ -233,7 +321,7 @@ export SCALA_HOME=/usr/lib/scala/bin
 PATH=$JAVA_HOME/bin:${SCALA_HOME}:"$PATH"
 export JAVA_HOME JRE_HOME
 
-export SPATIAL_HOME=/home/mattfel/macro/spatial-lang
+export SPATIAL_HOME=/home/mattfel/spatial-lang
 export ARGON_HOME=/home/mattfel/macro/argon
 export VIRTUALIZED_HOME=${ARGON_HOME}/scala-virtualized
 export PUB_HOME=${SPATIAL_HOME}/out
