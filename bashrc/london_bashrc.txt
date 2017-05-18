@@ -346,23 +346,24 @@ function vapp2 {
   make vcs
 }
 
-
-# $1 appname
-# $2 optional multifile level
+# $1 channel
+# $2 appname
+# $3 multifile level
+# $4 retiming
 function vapp {
-  m=$2
+  m=$3
   r=''
-  if [[ $3 = "1" ]]; then
+  if [[ $4 = "1" ]]; then
     r='--retiming'
   fi 
   cd ${SPATIAL_HOME}
   #make
   # make apps
-  rm -rf out
-  cmd="bin/spatial $1 --synth --out=out --naming --emission=1 --multifile=$m $r"
+  rm -rf out${1}
+  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r"
   echo "$cmd"
   eval "$cmd"
-  cd out
+  cd out${1}
   make vcs
 }
 
