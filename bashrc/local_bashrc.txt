@@ -101,10 +101,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f $HOME/.bash_aliases ]; then
-    . $HOME/.bash_aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
-
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -116,7 +115,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
 
 function hyperdsl { 
 a=($(pgrep "sublime" | wc -l))
@@ -139,7 +137,7 @@ gnome-terminal --profile=elio -e "ssh -X london.stanford.edu ";exit
 
 # $1 appname
 # $2 optional multifile level
-function app2 {
+function vapp2 {
   if [[ $2 = "" ]]; then
     m=4
   else
@@ -148,17 +146,18 @@ function app2 {
   cd ${SPATIAL_HOME}
   #make
   # make apps
+  rm -rf out2
   cmd="bin/spatial $1 --chisel --outdir=out2 --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out2
-  make sim
+  make vcs
 }
 
 
 # $1 appname
 # $2 optional multifile level
-function app {
+function vapp {
   if [[ $2 = "" ]]; then
     m=4
   else
@@ -167,11 +166,12 @@ function app {
   cd ${SPATIAL_HOME}
   #make
   # make apps
+  rm -rf out
   cmd="bin/spatial $1 --chisel --outdir=out --emission=1 --multifile=$m"
   echo "$cmd"
   eval "$cmd"
   cd out
-  make sim
+  make vcs
 }
 
 # Arg 1 = appname
@@ -248,6 +248,59 @@ function halide {
   fi
 }
 
+# $1 = environment to open
+function subl_env {
+  if [[ "$1" == "lon" || "$1" == "london" ]]; then
+    tp="london"
+    cleanmnt
+    mntlon
+    londonenv
+    cmd="subl /home/mattfel/sublime_projects/${tp}_generated.sublime-workspace &"
+    eval "$cmd"
+    cmd="subl /home/mattfel/sublime_projects/${tp}_templates.sublime-workspace &"
+    eval "$cmd"
+    cmd="subl /home/mattfel/sublime_projects/${tp}_spatial.sublime-workspace &"
+    eval "$cmd"
+  elif [[ "$1" == "local" ]]; then
+    tp="local"
+    cmd="subl /home/mattfel/sublime_projects/${tp}_generated.sublime-workspace &"
+    eval "$cmd"
+    cmd="subl /home/mattfel/sublime_projects/${tp}_templates.sublime-workspace &"
+    eval "$cmd"
+    cmd="subl /home/mattfel/sublime_projects/${tp}_spatial.sublime-workspace &"
+    eval "$cmd"
+  elif [[ "$1" == "" ]]; then
+    subl
+  elif [[ "$1" == "dropbox" ]]; then
+    subl /home/mattfel/sublime_projects/dropbox.sublime-workspace
+  else
+    echo "ERROR: $1 not recognized option"
+    exit 1
+  fi
+}
+
+# $1 = message
+# $2 = minutes from now
+function remind {
+ echo 'notify-send GenericReminder "$1" -t 0' | at now + $2 minutes
+ #atrm <number> removes job
+ 
+
+}
+
+function appwave {
+  if [ -f ${SPATIAL_HOME}/out${1}/Top.vcd ];then 
+    gtkwave ${SPATIAL_HOME}/out${1}/Top.vcd; 
+  else 
+    gtkwave ${SPATIAL_HOME}/out${1}/DUT.vcd; 
+  fi
+   #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)
+}
+
+function tree {
+  cd ${SPATIAL_HOME}/out${1};google-chrome ${SPATIAL_HOME}/out${1}/controller_tree.html &
+}
+
 function open_ctrl {
 if [ -z $1 ]; then
   echo "ERROR: No app name specified."
@@ -262,7 +315,7 @@ alias mka='cd ${SPATIAL_HOME};make apps'
 alias screenoff='sudo xinput --disable "ELAN Touchscreen"'
 alias screenon='sudo xinput --enable "ELAN Touchscreen"'
 alias website='cd ~/Dropbox/Shared_Desktop/ResumeTex/;pdflatex ResumeMaster.tex > /dev/null;cp ResumeMaster.pdf ~/mattfel1.github.io/;cd ~/mattfel1.github.io;jekyll build;git add --all;git commit -m "test";git push'
-alias cleanmnt='sudo pkill -9 -f sshfs;sudo umount /mnt/london;sudo umount /mnt/tucson;sudo umount /mnt/max2;sudo umount /mnt/myth'
+alias cleanmnt='sudo pkill -9 -f sshfs;sudo umount -l /mnt/london;sudo umount -l /mnt/tucson;sudo umount -l /mnt/max2;sudo umount -l /mnt/myth'
 alias mntmaxeler='sudo sshfs mfeldman@portal.maxeler.com:/home/mfeldman /mnt/maxeler -p 3033 -o allow_other,IdentityFile=~/.ssh/id_rsa'
 alias mntmyth='sudo sshfs mattfel@myth.stanford.edu:/afs/.ir/users/m/a/mattfel /mnt/myth -o allow_other,IdentityFile=~/.ssh/id_rsa'
 alias mntmax='sudo sshfs mattfel@max-2.stanford.edu:/kunle/users/mattfel /mnt/max2 -o allow_other,IdentityFile=~/.ssh/id_rsa'
@@ -310,8 +363,16 @@ alias clean_tex='find ~/Dropbox/Shared_Desktop/ResumeTex/. -type f  ! -name "*.t
 alias pingmaxeler='ping -p 3033 portal.maxeler.com'
 alias corn='gnome-terminal --profile=cyclades -e "ssh -X corn.stanford.edu";exit'
 alias myth='gnome-terminal --profile=cyclades -e "ssh -X myth.stanford.edu";exit'
-alias appwave='gtkwave ${PUB_HOME}/DUT.vcd' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
-alias tree='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html &'
+alias tucsonenv='export PUB_HOME=/mnt/tucson/spatial-lang/out;export SPATIAL_HOME=/mnt/tucson/spatial-lang'
+alias londonenv='export PUB_HOME=/mnt/london/spatial-lang/out;export SPATIAL_HOME=/mnt/london/spatial-lang'
+#alias appwave='if [ -f ${SPATIAL_HOME}/out/Top.vcd ];then gtkwave ${SPATIAL_HOME}/out/Top.vcd; else gtkwave ${SPATIAL_HOME}/out/DUT.vcd; fi' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+alias appwave2='if [ -f ${SPATIAL_HOME}/out2/Top.vcd ];then gtkwave ${SPATIAL_HOME}/out2/Top.vcd; else gtkwave ${SPATIAL_HOME}/out2/DUT.vcd; fi' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+alias appwave3='if [ -f ${SPATIAL_HOME}/out3/Top.vcd ];then gtkwave ${SPATIAL_HOME}/out3/Top.vcd; else gtkwave ${SPATIAL_HOME}/out3/DUT.vcd; fi' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+alias appwave4='if [ -f ${SPATIAL_HOME}/out4/Top.vcd ];then gtkwave ${SPATIAL_HOME}/out4/Top.vcd; else gtkwave ${SPATIAL_HOME}/out4/DUT.vcd; fi' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
+#alias tree='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html &'
+alias tree2='cd ${SPATIAL_HOME}/out2;google-chrome ${SPATIAL_HOME}/out2/controller_tree.html &'
+alias tree3='cd ${SPATIAL_HOME}/out3;google-chrome ${SPATIAL_HOME}/out3/controller_tree.html &'
+alias tree4='cd ${SPATIAL_HOME}/out4;google-chrome ${SPATIAL_HOME}/out4/controller_tree.html &'
 #alias tempwave='gtkwave $(ls -Rt /home/mattfel/hyperdsl/delite/runtime/src/static/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 alias tempwave='gtkwave $(ls -Rt /home/mattfel/macro/spatial/src/spatial/codegen/chiselgen/resources/template-level/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 #alias test='ls -Rt /home/mattfel/hyperdsl/spatial/chisel/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1'
@@ -324,6 +385,9 @@ alias l='cd ${LMS_HOME}'
 alias o='cd ${PUB_HOME}/out'
 alias h='cd ${HYPER_HOME}'
 alias a='cd ${ARGON_HOME}'
+alias regreminder='echo ''notify-send "Check regression and put pre-master into master if success!"'' | at now + 100 minutes'
+alias ltc='/home/mattfel/mine/litecoin-0.6.3c-linux/bin/64/litecoin-qt &'
+alias de1='ssh de1@de1soc'
 
 export FORGE_HOME='/home/mattfel/hyperdsl/forge'
 export DELITE_HOME='/home/mattfel/hyperdsl/delite'
@@ -332,11 +396,14 @@ export JAVA_HOME=$(readlink -f $(dirname $(readlink -f $(which java)))/../../)
 #export JAVA_HOME='/usr' #/jvm/java-7-openjdk-amd64'
 export HYPER_HOME='/home/mattfel/hyperdsl'
 export PIR_HOME='/home/mattfel/hyperdsl/forge'
-export SPATIAL_HOME='/home/mattfel/macro/spatial'
+export SPATIAL_HOME='/home/mattfel/spatial-lang'
 export PUB_HOME='/home/mattfel/macro/spatial/out'
 export ARGON_HOME='/home/mattfel/macro/argon'
-export VIRTUALIZED_HOME='/home/mattfel/macro/scala-virtualized'
+export VIRTUALIZED_HOME='/home/mattfel/macro/argon/scala-virtualized'
 export -f hyperdsl
 export PATH='/usr/lib/scala/bin':$PATH:'/home/mattfel/firrtl/utils/bin'
 export RISCV='/home/mattfel/rocket-chip/riscv-tools'
 export TEMPLATES_HOME='/home/mattfel/macro/spatial/src/spatial/codegen/chiselgen/resources/template-level'
+export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
+export PATH=$VCS_HOME/amd64/bin:$PATH
+export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LMS_LICENSE_FILE
