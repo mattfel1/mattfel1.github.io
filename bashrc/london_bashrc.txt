@@ -350,6 +350,29 @@ function vapp2 {
 # $2 appname
 # $3 multifile level
 # $4 retiming
+function wapp {
+  m=$3
+  r=''
+  if [[ $4 = "1" ]]; then
+    r='--retiming'
+  fi 
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out${1}
+  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r"
+  echo "$cmd"
+  eval "$cmd"
+  cd out${1}
+  waveon
+  make vcs
+}
+
+
+# $1 channel
+# $2 appname
+# $3 multifile level
+# $4 retiming
 function vapp {
   m=$3
   r=''
