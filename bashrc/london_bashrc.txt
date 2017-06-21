@@ -243,9 +243,10 @@ function vdot {
 }
 
 function waveon {
-  sed -i '240s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
-  sed -i '241s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
-  sed -i '242s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '285s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '286s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '288s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '289s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
 }
 
 # $1 appname
