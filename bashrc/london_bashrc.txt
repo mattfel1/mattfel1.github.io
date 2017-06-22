@@ -408,6 +408,9 @@ function inferapp {
 cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g'
 
 }
+function hardfloat() {
+find . -type f -exec sed -i 's/package hardfloat/package types/g' {} \;
+}
 
 function chiselenv() {
 export HYPER_HOME=/home/mattfel/chisel/hyperdsl
@@ -444,6 +447,8 @@ alias mka='cd ${SPATIAL_HOME};make apps'
 alias appwave='gtkwave ${PUB_HOME}/DUT.vcd' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 alias tree='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html &'
 alias k='pkill -f -9 accel'
+
+
 export ALTERAOCLSDKROOT="/opt/altera/hld"
 export LM_LICENSE_FILE=/opt/altera/license/1-ECLIAL_License.dat
 export LM_LICENSE_FILE=7193@cadlic0.stanford.edu:1717@cadlic0:$LM_LICENSE_FILE
@@ -475,3 +480,4 @@ export TEMPLATES_HOME=${SPATIAL_HOME}/spatial/core/resources/chiselgen/template-
 export USE_IDEAL_DRAM=0
 export _JAVA_OPTIONS="-Xmx16g"
 export PATH=/opt/altera/modelsim_ase/bin:$PATH
+
