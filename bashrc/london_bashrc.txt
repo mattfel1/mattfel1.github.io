@@ -480,4 +480,10 @@ export TEMPLATES_HOME=${SPATIAL_HOME}/spatial/core/resources/chiselgen/template-
 export USE_IDEAL_DRAM=0
 export _JAVA_OPTIONS="-Xmx16g"
 export PATH=/opt/altera/modelsim_ase/bin:$PATH
-
+export PATH=$PATH:/opt/Xilinx/Vivado/2017.1/bin
+export XILINX_VIVADO=/opt/Xilinx/Vivado/2017.1
+export LM_LICENSE_FILE=7193@cadlic0.stanford.edu:$LM_LICENSE_FILE
+export LM_LICENSE_FILE=/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:$LM_LICENSE_FILE
+export AWS_HOME=/home/mattfel/aws-fpga
+export AWS_CONFIG_FILE=/home/mattfel/aws-fpga/hdk/cl/examples/rootkey.csv
+export EMAIL=mattfel@stanford.edu
