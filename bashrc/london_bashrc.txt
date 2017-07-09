@@ -249,104 +249,6 @@ function waveon {
   sed -i '289s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
 }
 
-# $1 appname
-# $2 multifile level (0 = onefile,noscope, 4 = multifile)
-# $3 retiming (0 or 1)
-function vapp6 {
-  m=$2
-  r=''
-  if [[ $3 = "1" ]]; then
-    r='--retiming'
-  fi 
-  cd ${SPATIAL_HOME}
-  #make
-  # make apps
-  rm -rf out6
-  cmd="bin/spatial $1 --synth --out=out6 --naming --emission=1 --multifile=$m $r"
-  echo "$cmd"
-  eval "$cmd"
-  cd out6
-  make vcs
-}
-
-# $1 appname
-# $2 multifile level (0 = onefile,noscope, 4 = multifile)
-# $3 retiming (0 or 1)
-function vapp5 {
-  m=$2
-  r=''
-  if [[ $3 = "1" ]]; then
-    r='--retiming'
-  fi 
-  cd ${SPATIAL_HOME}
-  #make
-  # make apps
-  rm -rf out5
-  cmd="bin/spatial $1 --synth --out=out5 --naming --emission=1 --multifile=$m $r"
-  echo "$cmd"
-  eval "$cmd"
-  cd out5
-  make vcs
-}
-
-# $1 appname
-# $2 multifile level (0 = onefile,noscope, 4 = multifile)
-# $3 retiming (0 or 1)
-function vapp4 {
-  m=$2
-  r=''
-  if [[ $3 = "1" ]]; then
-    r='--retiming'
-  fi 
-  cd ${SPATIAL_HOME}
-  #make
-  # make apps
-  rm -rf out4
-  cmd="bin/spatial $1 --synth --out=out4 --naming --emission=1 --multifile=$m $r"
-  echo "$cmd"
-  eval "$cmd"
-  cd out4
-  make vcs
-}
-
-# $1 appname
-# $2 optional multifile level
-function vapp3 {
-  m=$2
-  r=''
-  if [[ $3 = "1" ]]; then
-    r='--retiming'
-  fi 
-  cd ${SPATIAL_HOME}
-  #make
-  # make apps
-  rm -rf out3
-  cmd="bin/spatial $1 --synth --out=out3 --naming --emission=1 --multifile=$m $r"
-  echo "$cmd"
-  eval "$cmd"
-  cd out3
-  make vcs
-}
-
-# $1 appname
-# $2 optional multifile level
-function vapp2 {
-  m=$2
-  r=''
-  if [[ $3 = "1" ]]; then
-    r='--retiming'
-  fi 
-  cd ${SPATIAL_HOME}
-  #make
-  # make apps
-  rm -rf out2
-  cmd="bin/spatial $1 --synth --out=out2 --naming --emission=1 --multifile=$m $r"
-  echo "$cmd"
-  eval "$cmd"
-  cd out2
-  make vcs
-}
-
 # $1 channel
 # $2 appname
 # $3 multifile level
@@ -384,7 +286,7 @@ function vapp {
   #make
   # make apps
   rm -rf out${1}
-  cmd="bin/spatial $2 --synth --out=out${1} --emission=1 --multifile=$m $r"
+  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r"
   echo "$cmd"
   eval "$cmd"
   cd out${1}
