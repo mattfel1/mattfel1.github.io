@@ -247,6 +247,9 @@ function waveon {
   sed -i '286s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
   sed -i '288s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
   sed -i '289s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '290s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '291s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i '292s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
 }
 
 # $1 channel
