@@ -280,4 +280,7 @@ export ARGON_HOME=/home/mattfel/macro/argon
 export VIRTUALIZED_HOME=${ARGON_HOME}/scala-virtualized
 export PUB_HOME=${SPATIAL_HOME}/out
 export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
+export PATH=$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=7195@cadlic0.stanford.edu:1717@cadlic0.stanford.edu:27000@cadlic0.stanford.edu:/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:/opt/altera/13.1/license/1-ECLIAL_License.dat
+alias reg='cd /home/mattfel/regression'
+alias map='ll /remote/regression/mapping'

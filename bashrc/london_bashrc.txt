@@ -393,3 +393,5 @@ export AWS_HOME=/home/mattfel/aws-fpga
 export AWS_CONFIG_FILE=/home/mattfel/aws-fpga/hdk/cl/examples/rootkey.csv
 export RPT_HOME=/home/mattfel/aws-fpga/hdk/cl/examples
 export EMAIL=mattfel@stanford.edu
+alias reg='cd /home/mattfel/regression'
+alias map='ll /remote/regression/mapping'
