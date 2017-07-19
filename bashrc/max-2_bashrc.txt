@@ -152,7 +152,7 @@ alias copymax='ssh -p 3033 mfeldman@portal.maxeler.com rm -rf /home/mfeldman/max
 alias ee282='cd ~/ee282/proj1/datadump'
 alias fix1='python ~/maxj1/fix.py'
 alias python=/usr/local/bin/python2.7
-alias reg='cd /kunle/users/mattfel/regression/scala'
+alias reg='cd /kunle/users/mattfel/regression'
 alias inflight='echo "Tests in flight:";ll /kunle/users/mattfel/regression/scala | grep "ack\|new\|lock" | wc -l'
 
 export LM_LICENSE_FILE=/opt/altera/license/1-DL6BC3_License.dat
@@ -173,13 +173,14 @@ export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
 export PATH=$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
 alias sbt=/usr/bin/sbt
-alias reg='cd /kunle/users/mattfel/regression_tflop1'
 alias map='ll /remote/regression/mapping'
 #export JAVA_HOME=$(readlink -f $(dirname $(readlink -f $(which java)))/..)
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
+#export JAVA_HOME=/opt/jdk1.8.0_121/include
 
-export CC=/opt/centos/devtoolset-1.1/root/usr/bin/gcc  
-export CPP=/opt/centos/devtoolset-1.1/root/usr/bin/cpp
-export CXX=/opt/centos/devtoolset-1.1/root/usr/bin/c++
-alias g++=/opt/centos/devtoolset-1.1/root/usr/bin/g++
-alias gcc=/opt/centos/devtoolset-1.1/root/usr/bin/gcc
+#export CC=/opt/centos/devtoolset-1.1/root/usr/bin/gcc  
+#export CPP=/opt/centos/devtoolset-1.1/root/usr/bin/cpp
+#export CXX=/opt/centos/devtoolset-1.1/root/usr/bin/c++
+#alias g++=/opt/centos/devtoolset-1.1/root/usr/bin/g++
+#alias gcc=/opt/centos/devtoolset-1.1/root/usr/bin/gcc
+
+#export LD_PRELOAD=/opt/glibc-2.15/lib/libc-2.15.so
