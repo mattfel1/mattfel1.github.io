@@ -2,7 +2,7 @@
 
 cd ~/mattfel1.github.io/bashrc
 git pull
-servers=("max-2" "tucson" "portland" "london" "maxeler")
+servers=("max-2" "tucson" "portland" "london" "maxeler" "tflop2" "tflop1" "ottawa")
 for s in ${servers[@]}; do
   if [[ $s = "maxeler" ]]; then
     cmd="-P 3033 mfeldman@portal.maxeler.com"
@@ -28,6 +28,8 @@ for s in ${servers[@]}; do
 done
 
 cd ~/mattfel1.github.io/bashrc
+tim=`date`
+sed -i "s/Last server update: .*/Last server update: ${tim}/g" index.html
 git add -A
 git commit -m "auto update from tucson"
 git push
