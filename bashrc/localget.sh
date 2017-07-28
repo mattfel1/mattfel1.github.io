@@ -20,6 +20,7 @@ else # fail
 fi
 
 cd ~/mattfel1.github.io/bashrc
+sed -i "s/Last local update: .*/Last local update: ${tim}/g" index.html
 git add -A
 git commit -m "auto update from local"
 git push
