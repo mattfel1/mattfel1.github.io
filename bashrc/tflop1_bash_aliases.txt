@@ -1,0 +1,1 @@
+alias none='echo "na"'
