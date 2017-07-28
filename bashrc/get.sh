@@ -28,6 +28,8 @@ for s in ${servers[@]}; do
 done
 
 cd ~/mattfel1.github.io/bashrc
+tim=`date`
+sed -i "s/Last server update: .*/Last server update: ${tim}/g" index.html
 git add -A
 git commit -m "auto update from tucson"
 git push
