@@ -112,6 +112,18 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+function log() {
+  bak=`pwd`
+  cd /home/regression
+  files=(*)
+  new_packets=()
+  sorted_packets=()
+  for f in ${files[@]}; do if [[ $f = *"log-"* ]]; then new_packets+=($f); fi; done
+  sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+  cat ${sorted_packets[$((-1-$1))]}
+  echo "Printed ${sorted_packets[$((-1-$1))]}"
+  cd $bak
+}
 
 export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
 export PATH=$VCS_HOME/amd64/bin:$PATH

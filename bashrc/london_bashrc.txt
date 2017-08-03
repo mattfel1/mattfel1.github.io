@@ -257,6 +257,7 @@ function waveon {
 # $2 appname
 # $3 multifile level
 # $4 retiming
+# $5 other flags like "--affine"
 function wapp {
   m=$3
   r=''
@@ -267,7 +268,7 @@ function wapp {
   #make
   # make apps
   rm -rf out${1}
-  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r"
+  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r $5"
   echo "$cmd"
   eval "$cmd"
   cd out${1}
@@ -280,6 +281,7 @@ function wapp {
 # $2 appname
 # $3 multifile level
 # $4 retiming
+# $5 other flags like "--affine"
 function vapp {
   m=$3
   r=''
@@ -290,7 +292,7 @@ function vapp {
   #make
   # make apps
   rm -rf out${1}
-  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r"
+  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r $5"
   echo "$cmd"
   eval "$cmd"
   cd out${1}
@@ -316,6 +318,19 @@ cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 
 }
 function hardfloat() {
 find . -type f -exec sed -i 's/package hardfloat/package types/g' {} \;
+}
+
+function log() {
+  bak=`pwd`
+  cd /home/mattfel/regression
+  files=(*)
+  new_packets=()
+  sorted_packets=()
+  for f in ${files[@]}; do if [[ $f = *"log-"* ]]; then new_packets+=($f); fi; done
+  sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+  cat ${sorted_packets[$((-1-$1))]}
+  echo "Printed ${sorted_packets[$((-1-$1))]}"
+  cd $bak
 }
 
 function chiselenv() {
@@ -360,7 +375,6 @@ export LM_LICENSE_FILE=/opt/altera/license/1-ECLIAL_License.dat
 export LM_LICENSE_FILE=7193@cadlic0.stanford.edu:1717@cadlic0:$LM_LICENSE_FILE
 export PATH=/opt/altera/quartus/bin:$PATH
 export PATH=/opt/maxeler/bin:$PATH
-export PATH=/opt/Xilinx/Vivado_HLS/2017.1/bin/:$PATH
 export MAXCOMPILERDIR=/opt/maxcompiler/
 export PATH=/opt/maxcompiler/bin:$PATH
 export MAXELEROSDIR=/opt/maxcompiler/lib/maxeleros-sim
@@ -386,17 +400,20 @@ export TEMPLATES_HOME=${SPATIAL_HOME}/spatial/core/resources/chiselgen/template-
 export USE_IDEAL_DRAM=0
 export _JAVA_OPTIONS="-Xmx32g -Xss8912k"
 export PATH=/opt/altera/modelsim_ase/bin:$PATH
-export PATH=$PATH:/opt/Xilinx/Vivado/2017.1/bin
-export XILINX_VIVADO=/opt/Xilinx/Vivado/2017.1
 export LM_LICENSE_FILE=7193@cadlic0.stanford.edu:$LM_LICENSE_FILE
 export LM_LICENSE_FILE=/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:$LM_LICENSE_FILE
 export AWS_HOME=/home/mattfel/aws-fpga
 export AWS_CONFIG_FILE=/home/mattfel/aws-fpga/hdk/cl/examples/rootkey.csv
 export RPT_HOME=/home/mattfel/aws-fpga/hdk/cl/examples
 export EMAIL=mattfel@stanford.edu
+source /opt/Xilinx/SDx/2017.1/settings64.sh
+#export PATH=/opt/Xilinx/Vivado_HLS/2017.1/bin/:$PATH
+#export PATH=$PATH:/opt/Xilinx/Vivado/2017.1/bin
+export XILINX_VIVADO=/opt/Xilinx/Vivado/2017.1
+export PATH=/usr/bin:/local/ssd/home/mattfel/aws-fpga/hdk/common/scripts:$PATH
 #cd /home/mattfel/aws-fpga/
-#source /home/mattfel/aws-fpga/sdk_setup.sh
-export PATH=/local/ssd/home/mattfel/aws-fpga/hdk/common/scripts:$PATH
+#source /home/mattfel/aws-fpga/hdk_setup.sh
+
 alias reg='cd /home/mattfel/regression'
 alias map='ll /remote/regression/mapping'
 alias sp='cd ~/spatial-lang'
