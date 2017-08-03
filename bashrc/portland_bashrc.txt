@@ -138,6 +138,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
+function log() {
+  bak=`pwd`
+  cd /home/regression
+  files=(*)
+  new_packets=()
+  sorted_packets=()
+  for f in ${files[@]}; do if [[ $f = *"log-"* ]]; then new_packets+=($f); fi; done
+  sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+  cat ${sorted_packets[$((-1-$1))]}
+  echo "Printed ${sorted_packets[$((-1-$1))]}"
+  cd $bak
+}
+
 alias reg='cd /home/regression'
 alias inflight='echo "Tests in flight:";ll /home/regression/chisel | grep "ack\|new\|lock" | wc -l'
 export SPATIAL_HOME='/home/mattfel/macro/spatial-lang'

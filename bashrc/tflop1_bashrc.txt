@@ -121,6 +121,45 @@ grep -r "TopKernelLib for app" ./maxj
 #  fi
 #done
 }
+function log() {
+  bak=`pwd`
+  cd /kunle/users/mattfel/regression
+  files=(*)
+  new_packets=()
+  sorted_packets=()
+  for f in ${files[@]}; do if [[ $f = *"log-"* ]]; then new_packets+=($f); fi; done
+  sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+  cat ${sorted_packets[$((-1-$1))]}
+  echo "Printed ${sorted_packets[$((-1-$1))]}"
+  cd $bak
+}
+
+function logt() {
+  bak=`pwd`
+  cd /home/regression
+  files=(*)
+  new_packets=()
+  sorted_packets=()
+  for f in ${files[@]}; do if [[ $f = *"log-"* ]]; then new_packets+=($f); fi; done
+  sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+  cat ${sorted_packets[$((-1-$1))]}
+  echo "Printed ${sorted_packets[$((-1-$1))]}"
+  cd $bak
+}
+
+function log() {
+  bak=`pwd`
+  cd /home/regression
+  files=(*)
+  new_packets=()
+  sorted_packets=()
+  for f in ${files[@]}; do if [[ $f = *"log-"* ]]; then new_packets+=($f); fi; done
+  sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+  cat ${sorted_packets[$((-1-$1))]}
+  echo "Printed ${sorted_packets[$((-1-$1))]}"
+  cd $bak
+}
+
 
 
 alias ll='ls -alF'

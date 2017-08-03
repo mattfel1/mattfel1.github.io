@@ -235,6 +235,18 @@ cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 
 #done
 }
 
+function log() {
+  bak=`pwd`
+  cd /home/mattfel/regression
+  files=(*)
+  new_packets=()
+  sorted_packets=()
+  for f in ${files[@]}; do if [[ $f = *"log-"* ]]; then new_packets+=($f); fi; done
+  sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+  cat ${sorted_packets[$((-1-$1))]}
+  echo "Printed ${sorted_packets[$((-1-$1))]}"
+  cd $bak
+}
 
 
 alias ll='ls -al'
