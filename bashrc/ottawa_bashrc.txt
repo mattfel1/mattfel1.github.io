@@ -116,6 +116,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# $1 - number of logfiles back to go in alphabetical order
+ 
+function log() {
+  bak=`pwd`
+  cd /home/regression
+  files=(*)
+  new_packets=()
+  sorted_packets=()
+  for f in ${files[@]}; do if [[ $f = *"log-"* ]]; then new_packets+=($f); fi; done
+  sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+  cat ${sorted_packets[$((-1-$1))]}
+  echo "Printed ${sorted_packets[$((-1-$1))]}"
+  cd $bak
+}
+
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export _JAVA_OPTIONS="-Xmx8g"
