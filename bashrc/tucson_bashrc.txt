@@ -296,3 +296,7 @@ export PATH=$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=7195@cadlic0.stanford.edu:1717@cadlic0.stanford.edu:27000@cadlic0.stanford.edu:/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:/opt/altera/13.1/license/1-ECLIAL_License.dat
 alias reg='cd /home/mattfel/regression'
 alias map='ll /remote/regression/mapping'
+export XILINX_VIVADO=/opt/Xilinx/Vivado/2017.1
+export PATH=$PATH:$XILINX_VIVADO/bin
+source $XILINX_VIVADO/settings64.sh
+
