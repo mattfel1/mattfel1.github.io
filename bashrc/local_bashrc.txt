@@ -372,3 +372,6 @@ export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
 export PATH=$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
 alias dve='/cad/synopsys/vcs/K-2015.09-SP2-7/bin/dve -full64'
+alias open='okular'
+export SUNETID=mattfel
+alias zc='ssh holodeck-zc706'
