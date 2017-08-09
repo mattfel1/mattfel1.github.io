@@ -365,4 +365,11 @@ alias redosw='rm *.tar.gz && make -C cpp clean && make zynq'
 alias timerr='cat par_timing_summary.rpt | grep VIOLATE | wc -l'
 alias donelanes='find . -name "*.tar.gz"'
 
+alias sp='cd ~/spatial-lang'
+alias s='git status'
+alias c='git commit'
+alias ca='git checkout asplos2018'
+alias cr='git checkout regression'
+alias cf='git checkout fpga'
+alias p='git push'
 
