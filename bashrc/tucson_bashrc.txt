@@ -362,9 +362,9 @@ export PATH=$PATH:$XILINX_VIVADO/bin
 source $XILINX_VIVADO/settings64.sh
 alias szc='scp $(basename $(pwd)).tar.gz mattfel@holodeck-zc706:'
 alias redosw='rm *.tar.gz && make -C cpp clean && make zynq'
-alias timerr='cat par_timing_summary.rpt | grep VIOLATE | wc -l'
+alias tmg='cat verilog-zynq/par_timing_summary.rpt | grep VIOLATE | wc -l'
 alias donelanes='find . -name "*.tar.gz"'
-
+export _JAVA_OPTIONS="-Xmx32g -Xss8912k -Xms16g"
 alias sp='cd ~/spatial-lang'
 alias s='git status'
 alias c='git commit'
