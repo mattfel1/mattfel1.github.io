@@ -342,7 +342,8 @@ alias london='gnome-terminal --profile=london -e "ssh -X london.stanford.edu";ex
 alias ottawa='gnome-terminal --profile=ottawa -e "ssh -X ottawa.stanford.edu";exit'
 alias portland='gnome-terminal --profile=portland -e "ssh -X portland.stanford.edu";exit'
 alias edittheme='rm ~/Downloads/*.tmTheme*;google-chrome https://tmtheme-editor.herokuapp.com;read -p "Load from this address:   /home/mattfel/.config/sublime-text-2/Packages/Color Scheme      Press enter after you edit and download to copy to prefs";cp ~/Downloads/*.tmTheme /home/mattfel/.config/sublime-text-2/Packages/Color\ Scheme\ -\ Default'
-alias tick_thru='watch -n0.15 "xdotool key ctrl+a n"'
+alias tick_thru='watch -n0.5 "xdotool key ctrl+a n"'
+alias enter_passwd='watch -n1.5 "xdotool key ctrl+shift+v Return ctrl+a n"'
 alias corn='gnome-terminal --profile=cyclades -e "ssh -X corn.stanford.edu";exit'
 alias myth='gnome-terminal --profile=cyclades -e "ssh -X myth.stanford.edu";exit'
 alias tucsonenv='export PUB_HOME=/mnt/tucson/spatial-lang/out;export SPATIAL_HOME=/mnt/tucson/spatial-lang'
@@ -375,3 +376,4 @@ alias dve='/cad/synopsys/vcs/K-2015.09-SP2-7/bin/dve -full64'
 alias open='okular'
 export SUNETID=mattfel
 alias zc='ssh holodeck-zc706'
+
