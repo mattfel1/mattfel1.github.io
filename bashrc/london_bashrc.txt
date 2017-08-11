@@ -427,3 +427,17 @@ alias rr='bash bin/run_regression.sh'
 alias ez='bash bin/ezgit.sh'
 alias a='git add'
 alias szc='scp $(basename $(pwd)).tar.gz mattfel@holodeck-zc706:'
+alias replaceheaders='cp ~/spatial-lang/fringecontextaws.h ./FringeContextAWS.h; cp ~/spatial-lang/fringecontextbase.h ./FringeContextBase.h'
+
+function copy_aws_data() {
+  scp -i ~/spatial_key.pem /remote/regression/data/machsuite/${1}* centos@52.91.145.157:/remote/regression/data/machsuite
+}
+
+function copyfiles() {
+ n=$(basename $(pwd))
+ cat create* | grep agfi-
+ sleep 5
+ vim software/runtime/load.sh
+ scp -i ~/spatial_key.pem software/runtime/load.sh centos@52.91.145.157:~/src/project_data/aws-fpga/hdk/cl/examples/load.sh
+ scp -i ~/spatial_key.pem software/runtime/Top centos@52.91.145.157:~/src/project_data/aws-fpga/hdk/cl/examples/Top
+}
