@@ -427,17 +427,35 @@ alias rr='bash bin/run_regression.sh'
 alias ez='bash bin/ezgit.sh'
 alias a='git add'
 alias szc='scp $(basename $(pwd)).tar.gz mattfel@holodeck-zc706:'
-alias replaceheaders='cp ~/spatial-lang/fringecontextaws.h ./FringeContextAWS.h; cp ~/spatial-lang/fringecontextbase.h ./FringeContextBase.h'
 
 function copy_aws_data() {
-  scp -i ~/spatial_key.pem /remote/regression/data/machsuite/${1}* centos@52.91.145.157:/remote/regression/data/machsuite
+  scp -i ~/spatial_key.pem /remote/regression/data/machsuite/${1}* centos@54.84.94.1:/remote/regression/data/machsuite
 }
 
-function copyfiles() {
+function step5() {
  n=$(basename $(pwd))
  cat create* | grep agfi-
  sleep 5
  vim software/runtime/load.sh
- scp -i ~/spatial_key.pem software/runtime/load.sh centos@52.91.145.157:~/src/project_data/aws-fpga/hdk/cl/examples/load.sh
- scp -i ~/spatial_key.pem software/runtime/Top centos@52.91.145.157:~/src/project_data/aws-fpga/hdk/cl/examples/Top
+ scp -i ~/spatial_key.pem software/runtime/load.sh centos@54.84.94.1:~/src/project_data/aws-fpga/hdk/cl/examples/load.sh
+ scp -i ~/spatial_key.pem software/runtime/Top centos@54.84.94.1:~/src/project_data/aws-fpga/hdk/cl/examples/Top
+}
+function step1() {
+ sed -i "s/^.*ASSERT/\/\/ASSERT/g" cpp/TopHost.cpp
+ n=$(basename $(pwd))
+ make aws-F1-sw
+ cp create_* ${RPT_HOME}/$n
+}
+
+alias step2='cd software/include;cp ~/spatial-lang/fringecontextaws.h ./FringeContextAWS.h; cp ~/spatial-lang/fringecontextbase.h ./FringeContextBase.h;cd ../runtime;make clean;make;cd ../../;cat create_*;sed -n 1,7p create_spatial_AFI_instructions.txt | xclip -selection c'
+
+function step3() {
+  sed -i "s/out_aws_.*2017.*_bucket/$1/g" ~/spaghettipolicy
+  sed -i "s/17_.*_CL\.tar/$2/g" ~/spaghettipolicy
+}
+function step4() {
+ n=$(basename $(pwd))
+ nn=`echo $n | sed "s/aws/done/g"`
+ cd ../
+ mv $n $nn
 }
