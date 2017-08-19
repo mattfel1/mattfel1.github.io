@@ -209,26 +209,6 @@ function app2 {
   make sim
 }
 
-
-# $1 appname
-# $2 optional multifile level
-function app {
-  if [[ $2 = "" ]]; then
-    m=4
-  else
-    m=$2
-  fi
-  cd ${SPATIAL_HOME}
-  #make
-  rm -rf out
-  # make apps
-  cmd="bin/spatial $1 --synth --out=out --emission=1 --multifile=$m"
-  echo "$cmd"
-  eval "$cmd"
-  cd out
-  make sim
-}
-
 # $1 appname
 function vdot {
   cd ${SPATIAL_HOME}
@@ -252,6 +232,30 @@ function waveon {
 #  sed -i '292s/\/\///g' chisel/template-level/fringeVCS/Top-harness.sv
   sed -i 's/vcdon = .*;/vcdon = 1;/g' chisel/template-level/fringeVCS/Top-harness.sv
 }
+
+# $1 channel
+# $2 appname
+# $3 multifile level
+# $4 retiming
+# $5 other flags like "--affine"
+function app {
+  m=$3
+  r=''
+  if [[ $4 = "1" ]]; then
+    r='--retiming'
+  fi 
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out${1}
+  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r $5"
+  echo "$cmd"
+  eval "$cmd"
+  cd out${1}
+  waveon
+  make sim
+}
+
 
 # $1 channel
 # $2 appname
