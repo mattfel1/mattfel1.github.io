@@ -302,7 +302,7 @@ function appwave {
 }
 
 function tree {
-  cd ${SPATIAL_HOME}/out${1};google-chrome ${SPATIAL_HOME}/out${1}/controller_tree.html &
+  cd ${SPATIAL_HOME}/out${1};google-chrome --new-window ${SPATIAL_HOME}/out${1}/controller_tree.html &
 }
 
 function open_ctrl {
@@ -322,7 +322,7 @@ alias mntmaxeler='sudo sshfs mfeldman@portal.maxeler.com:/home/mfeldman /mnt/max
 alias mntmyth='sudo sshfs mattfel@myth.stanford.edu:/afs/.ir/users/m/a/mattfel /mnt/myth -o allow_other,IdentityFile=~/.ssh/id_rsa'
 alias mntmax='sudo sshfs mattfel@max-2.stanford.edu:/kunle/users/mattfel /mnt/max2 -o allow_other,IdentityFile=~/.ssh/id_rsa'
 alias mnttuc='sudo sshfs mattfel@tucson.stanford.edu:/home/mattfel /mnt/tucson -o allow_other,IdentityFile=~/.ssh/id_rsa'
-alias mntlon='sudo sshfs mattfel@london.stanford.edu:/home/mattfel /mnt/london -o allow_other,IdentityFile=~/.ssh/id_rsa'
+alias mntlon='sudo sshfs mattfel@london.stanford.edu:/home/mattfel /mnt/london -o Ciphers=arcfour,allow_other,IdentityFile=~/.ssh/id_rsa'
 alias mntpor='sudo sshfs mattfel@portland.stanford.edu:/home/mattfel /mnt/portland -o allow_other,IdentityFile=~/.ssh/id_rsa'
 alias dot='xdot ~/dhdl/out/dot/outfile.dot &'
 alias encrypt='7z a -p '
