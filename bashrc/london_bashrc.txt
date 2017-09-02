@@ -476,6 +476,7 @@ alias rr='bash bin/run_regression.sh'
 alias ez='bash bin/ezgit.sh'
 alias a='git add'
 alias szc='scp $(basename $(pwd)).tar.gz mattfel@holodeck-zc706:'
+export CLOCK_FREQ_MHZ=125
 
 function copy_aws_data() {
   scp -i ~/spatial_key.pem /remote/regression/data/machsuite/${1}* centos@54.84.94.1:/remote/regression/data/machsuite
