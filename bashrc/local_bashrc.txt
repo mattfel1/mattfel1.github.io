@@ -339,6 +339,7 @@ alias tucson='gnome-terminal --profile=tucson -e "ssh -X tucson.stanford.edu";ex
 alias tflop1='gnome-terminal --profile=tflop1 -e "ssh -X tflop1.stanford.edu";exit'
 alias tflop2='gnome-terminal --profile=tflop2 -e "ssh -X tflop2.stanford.edu";exit'
 alias london='gnome-terminal --profile=london -e "ssh -X london.stanford.edu";exit'
+alias pilot='gnome-terminal --profile=pilot -e "ssh -Yp1014 matt@rwc.pilot.ai";exit'
 alias ottawa='gnome-terminal --profile=ottawa -e "ssh -X ottawa.stanford.edu";exit'
 alias portland='gnome-terminal --profile=portland -e "ssh -X portland.stanford.edu";exit'
 alias edittheme='rm ~/Downloads/*.tmTheme*;google-chrome https://tmtheme-editor.herokuapp.com;read -p "Load from this address:   /home/mattfel/.config/sublime-text-2/Packages/Color Scheme      Press enter after you edit and download to copy to prefs";cp ~/Downloads/*.tmTheme /home/mattfel/.config/sublime-text-2/Packages/Color\ Scheme\ -\ Default'
