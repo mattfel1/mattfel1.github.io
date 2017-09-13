@@ -417,7 +417,7 @@ alias mka='cd ${SPATIAL_HOME};make apps'
 alias appwave='gtkwave ${PUB_HOME}/DUT.vcd' #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)'
 alias tree='cd ${SPATIAL_HOME}/out;google-chrome ${SPATIAL_HOME}/out/controller_tree.html &'
 alias k='pkill -f -9 accel'
-
+alias zinstr='scp mattfel@holodeck-zc706:~/instrumentation.txt ~/spatial-lang'
 
 export ALTERAOCLSDKROOT="/opt/altera/hld"
 export LM_LICENSE_FILE=/opt/altera/license/1-ECLIAL_License.dat
