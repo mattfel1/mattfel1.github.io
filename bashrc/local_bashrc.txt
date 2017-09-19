@@ -305,6 +305,10 @@ function tree {
   cd ${SPATIAL_HOME}/out${1};google-chrome --new-window ${SPATIAL_HOME}/out${1}/controller_tree.html &
 }
 
+function gif() {
+  ffmpeg -i $1.mkv -vf scale=640:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 15 -loop 0 - output.gif
+}
+
 function open_ctrl {
 if [ -z $1 ]; then
   echo "ERROR: No app name specified."
@@ -377,4 +381,5 @@ alias dve='/cad/synopsys/vcs/K-2015.09-SP2-7/bin/dve -full64'
 alias open='okular'
 export SUNETID=mattfel
 alias zc='ssh holodeck-zc706'
+export PATH=$PATH:'/usr/lib/jvm/java-8-oracle/jre/lib/amd64'
 
