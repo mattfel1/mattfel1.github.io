@@ -383,3 +383,4 @@ export SUNETID=mattfel
 alias zc='ssh holodeck-zc706'
 export PATH=$PATH:'/usr/lib/jvm/java-8-oracle/jre/lib/amd64'
 alias puttyde1='sudo putty /dev/ttyUSB0 -serial -sercfg 115200,8,n,1,N'
+alias sshde1='ssh -X root@rescomp-17-351912.stanford.edu'
