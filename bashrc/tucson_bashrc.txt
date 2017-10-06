@@ -373,3 +373,4 @@ alias cr='git checkout regression'
 alias cf='git checkout fpga'
 alias p='git push'
 
+export SBT_OPTS="-Xmx64G -Xss1G"
