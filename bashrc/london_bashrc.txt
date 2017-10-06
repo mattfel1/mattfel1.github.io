@@ -470,6 +470,7 @@ export PATH=/usr/bin:$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
 export TEMPLATES_HOME=${SPATIAL_HOME}/spatial/core/resources/chiselgen/template-level
 export USE_IDEAL_DRAM=0
+export SBT_OPTS="-Xmx64G -Xss1G"
 export _JAVA_OPTIONS="-Xmx32g -Xss8912k -Xms16g"
 export PATH=/opt/altera/modelsim_ase/bin:$PATH
 export LM_LICENSE_FILE=7193@cadlic0.stanford.edu:$LM_LICENSE_FILE

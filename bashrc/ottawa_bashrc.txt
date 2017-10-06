@@ -142,3 +142,4 @@ alias map='ll /remote/regression/mapping'
 #export LM_LICENSE_FILE=/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:$LM_LICENSE_FILE
 
 alias reg='cd /home/regression'
+export SBT_OPTS="-Xmx64G -Xss1G"
