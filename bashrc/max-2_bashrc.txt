@@ -224,3 +224,4 @@ alias regt='cd /home/regression'
 #alias gcc=/opt/centos/devtoolset-1.1/root/usr/bin/gcc
 
 #export LD_PRELOAD=/opt/glibc-2.15/lib/libc-2.15.so
+export SBT_OPTS="-Xmx64G -Xss1G"
