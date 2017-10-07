@@ -486,7 +486,7 @@ export XILINX_VIVADO=/opt/Xilinx/Vivado/2017.1
 export PATH=/usr/bin:/local/ssd/home/mattfel/aws-fpga/hdk/common/scripts:$PATH
 #cd /home/mattfel/aws-fpga/
 #source /home/mattfel/aws-fpga/hdk_setup.sh
-
+export LD_LIBRARY_PATH=${XILINX_VIVADO}/lib:${LD_LIBRARY_PATH}
 alias reg='cd /home/mattfel/regression'
 alias map='ll /remote/regression/mapping'
 alias sp='cd ~/spatial-lang'
