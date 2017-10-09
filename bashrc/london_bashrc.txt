@@ -533,3 +533,5 @@ function step4() {
  cd ../
  mv $n $nn
 }
+
+alias ex='cd /opt/Xilinx/Vivado/2017.1/examples/xsim/verilog/xsi/counter'
