@@ -558,3 +558,6 @@ function step4() {
 }
 
 alias ctr='cd /opt/Xilinx/Vivado/2017.1/examples/xsim/verilog/xsi/counter'
+export FOREGROUND="-foreground" # for aws-f1-afi running in foreground
+alias f1='cd /home/mattfel/regression/f1/spatial/spatial-lang'
+alias zy='cd /home/mattfel/regression/zynq/spatial/spatial-lang'
