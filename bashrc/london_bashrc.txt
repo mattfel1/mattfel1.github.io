@@ -561,3 +561,4 @@ alias ctr='cd /opt/Xilinx/Vivado/2017.1/examples/xsim/verilog/xsi/counter'
 export FOREGROUND="-foreground" # for aws-f1-afi running in foreground
 alias f1='cd /home/mattfel/regression/synth/aws/spatial/spatial-lang'
 alias zy='cd /home/mattfel/regression/synth/zynq/spatial/spatial-lang'
+export PIR_HOME=/home/mattfel/regression/synth
