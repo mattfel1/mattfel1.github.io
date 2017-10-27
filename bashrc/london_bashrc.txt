@@ -562,3 +562,5 @@ export FOREGROUND="-foreground" # for aws-f1-afi running in foreground
 alias f1='cd /home/mattfel/regression/synth/aws/spatial/spatial-lang'
 alias zy='cd /home/mattfel/regression/synth/zynq/spatial/spatial-lang'
 export PIR_HOME=/home/mattfel/regression/synth
+export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu #for xilinx hls stuff
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
