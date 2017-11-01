@@ -564,3 +564,10 @@ alias zy='cd /home/mattfel/regression/synth/zynq/spatial/spatial-lang'
 export PIR_HOME=/home/mattfel/regression/synth
 export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu #for xilinx hls stuff
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+
+function redo_sw() {
+  cd cpp
+  make clean
+  cd ../
+  make $1-sw
+}
