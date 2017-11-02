@@ -571,3 +571,11 @@ function redo_sw() {
   cd ../
   make $1-sw
 }
+
+function send_results() {
+  for D in */; do
+    cd $D
+    bash scrape.sh $1
+    cd ../
+  done
+}
