@@ -374,3 +374,27 @@ alias cf='git checkout fpga'
 alias p='git push'
 
 export SBT_OPTS="-Xmx64G -Xss1G"
+
+# $1 channel
+# $2 appname
+# $3 multifile level
+# $4 retiming
+# $5 other flags like "--affine"
+function zapp {
+  m=$3
+  r=''
+  if [[ $4 = "1" ]]; then
+    r='--retiming'
+  fi
+  cd ${SPATIAL_HOME}
+  #make
+  # make apps
+  rm -rf out${1}
+  cmd="bin/spatial $2 --synth --out=out${1} --naming --emission=1 --multifile=$m $r $5"
+  echo "$cmd"
+  eval "$cmd"
+  cd out${1}
+  make zynq
+}
+
+
