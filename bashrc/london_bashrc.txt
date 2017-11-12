@@ -579,3 +579,5 @@ function send_results() {
     cd ../
   done
 }
+
+export SDK_DIR=~/aws-fpga/sdk
