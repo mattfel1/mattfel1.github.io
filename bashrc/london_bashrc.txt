@@ -585,9 +585,10 @@ export SDK_DIR=~/aws-fpga/sdk
 # $1 = dir
 # $2 = agfi
 function popagfi() {
-  ip=54.242.251.198
-  dir=Nov14
+  ip=34.235.171.122
+  dir=Nov15
   sed -i "s/agfi-\[PLACE ID HERE\]/$2/g" software/runtime/load.sh
+  ssh -i ~/spatial_key.pem centos@$ip "mkdir /home/centos/src/project_data/aws-fpga/$dir/$1"
   scp -i ~/spatial_key.pem software/runtime/Top centos@$ip:/home/centos/src/project_data/aws-fpga/$dir/$1
   scp -i ~/spatial_key.pem software/runtime/load.sh centos@$ip:/home/centos/src/project_data/aws-fpga/$dir/$1
 }
