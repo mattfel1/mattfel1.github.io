@@ -585,13 +585,16 @@ export SDK_DIR=~/aws-fpga/sdk
 # $1 = dir
 # $2 = agfi
 function popagfi() {
-  ip=34.235.171.122
-  dir=Nov15
+  if [[ ${aws_ip} = "" ]]; then
+    echo "PLEASE EXPORT AWS F1 IP as variable 'aws_ip'"
+    exit 1
+  fi
+  dir=Nov16
   sed -i "s/agfi-\[PLACE ID HERE\]/$2/g" software/runtime/load.sh
-  ssh -i ~/spatial_key.pem centos@$ip "mkdir /home/centos/src/project_data/aws-fpga/$dir/$1"
-  scp -i ~/spatial_key.pem software/runtime/Top centos@$ip:/home/centos/src/project_data/aws-fpga/$dir/$1
-  scp -i ~/spatial_key.pem software/runtime/load.sh centos@$ip:/home/centos/src/project_data/aws-fpga/$dir/$1
+  ssh -i ~/spatial_key.pem centos@${aws_ip} "mkdir /home/centos/src/project_data/aws-fpga/$dir/$1"
+  scp -i ~/spatial_key.pem software/runtime/Top centos@${aws_ip}:/home/centos/src/project_data/aws-fpga/$dir/$1
+  scp -i ~/spatial_key.pem software/runtime/load.sh centos@${aws_ip}:/home/centos/src/project_data/aws-fpga/$dir/$1
 }
 
 
-
+export aws_ip=54.147.192.120
