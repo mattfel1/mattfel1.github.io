@@ -597,4 +597,5 @@ function popagfi() {
 }
 
 
-export aws_ip=54.147.192.120
+export aws_ip=54.196.63.244
+
