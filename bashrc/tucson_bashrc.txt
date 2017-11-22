@@ -405,3 +405,6 @@ function send_results() {
   done
 }
 
+alias f1='cd /home/mattfel/regression/synth/aws/spatial/spatial-lang'
+alias zy='cd /home/mattfel/regression/synth/zynq/spatial/spatial-lang'
+
