@@ -428,6 +428,22 @@ function log() {
   cd $bak
 }
 
+function reg() {
+  if [[ $1 = "" ]]; then
+    cd /home/mattfel/regression
+  else
+    bak=`pwd`
+    cd /home/mattfel/regression
+    files=(*)
+    new_packets=()
+    sorted_packets=()
+    for f in ${files[@]}; do if [[ $f = *"testdir-"* ]]; then new_packets+=($f); fi; done
+    sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+    cd ${sorted_packets[$((-1-$1))]}/spatial-lang
+    echo "Moved to ${sorted_packets[$((-1-$1))]}"
+  fi
+}
+
 function chiselenv() {
 export HYPER_HOME=/home/mattfel/chisel/hyperdsl
 export SPATIAL_HOME=${HYPER_HOME}/spatial
@@ -510,7 +526,7 @@ export PATH=/usr/bin:/local/ssd/home/mattfel/aws-fpga/hdk/common/scripts:$PATH
 #cd /home/mattfel/aws-fpga/
 #source /home/mattfel/aws-fpga/hdk_setup.sh
 export LD_LIBRARY_PATH=${XILINX_VIVADO}/lib/lnx64.o:${LD_LIBRARY_PATH}
-alias reg='cd /home/mattfel/regression'
+#alias reg='cd /home/mattfel/regression'
 alias map='ll /remote/regression/mapping'
 alias sp='cd ~/spatial-lang'
 alias s='git status'
