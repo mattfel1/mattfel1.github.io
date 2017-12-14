@@ -310,6 +310,23 @@ prep() {
  python bin/scrape.py $loc 
 }
 
+function reg() {
+  if [[ $1 = "" ]]; then
+    cd /home/mattfel/regression
+  else
+    bak=`pwd`
+    cd /home/mattfel/regression
+    files=(*)
+    new_packets=()
+    sorted_packets=()
+    for f in ${files[@]}; do if [[ $f = *"testdir-"* ]]; then new_packets+=($f); fi; done
+    sorted_packets=( $(for arr in "${new_packets[@]}"; do echo $arr; done | sort) )
+    cd ${sorted_packets[$((-1-$1))]}/spatial-lang
+    echo "Moved to ${sorted_packets[$((-1-$1))]}"
+  fi
+}
+
+
 alias ll='ls -al'
 alias freeports='pkill -f lib/maxeleros-sim/daemon/maxelerosd'
 alias cpudense='cp ~/cpucodedense.c ~/maxj/CPUCode/cpucode.c'
@@ -355,7 +372,7 @@ export PUB_HOME=${SPATIAL_HOME}/out
 export VCS_HOME=/cad/synopsys/vcs/K-2015.09-SP2-7
 export PATH=$VCS_HOME/amd64/bin:$PATH
 export LM_LICENSE_FILE=7195@cadlic0.stanford.edu:1717@cadlic0.stanford.edu:27000@cadlic0.stanford.edu:/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:/opt/altera/13.1/license/1-ECLIAL_License.dat
-alias reg='cd /home/mattfel/regression'
+#alias reg='cd /home/mattfel/regression'
 alias map='ll /remote/regression/mapping'
 export XILINX_VIVADO=/opt/Xilinx/Vivado/2017.1
 export PATH=$PATH:$XILINX_VIVADO/bin
@@ -407,4 +424,4 @@ function send_results() {
 
 alias f1='cd /home/mattfel/regression/synth/aws/spatial/spatial-lang'
 alias zy='cd /home/mattfel/regression/synth/zynq/spatial/spatial-lang'
-
+export CLOCK_FREQ_MHZ='125'
