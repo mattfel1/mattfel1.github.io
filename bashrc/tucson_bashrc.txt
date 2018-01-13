@@ -389,7 +389,10 @@ alias ca='git checkout asplos2018'
 alias cr='git checkout regression'
 alias cf='git checkout fpga'
 alias p='git push'
+alias a='git add'
+alias rr='bash utilities/run_regression.sh'
 
+export TEMPLATES_HOME=${SPATIAL_HOME}/spatial/core/resources/chiselgen/template-level
 export SBT_OPTS="-Xmx64G -Xss1G"
 
 # $1 channel
