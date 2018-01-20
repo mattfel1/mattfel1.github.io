@@ -539,6 +539,7 @@ alias rr='bash utilities/run_regression.sh'
 alias ez='bash utilities/ezgit.sh'
 alias a='git add'
 alias szc='scp $(basename $(pwd)).tar.gz mattfel@holodeck-zc706:'
+alias szcu='scp $(basename $(pwd)).tar.gz root@zcu102:'
 export CLOCK_FREQ_MHZ=125
 
 function copy_aws_data() {
