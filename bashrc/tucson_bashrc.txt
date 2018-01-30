@@ -437,3 +437,11 @@ export ALTERAOCLSDKROOT="/opt/intelFPGA_pro/$QVER/hld"
 export LM_LICENSE_FILE=“/opt/intelFPGA_pro/licenses/arria10-license.dat”:$LM_LICENSE_FILE
 export ALTERAD_LICENSE_FILE=“/opt/intelFPGA_pro/licenses/arria10-license.dat”
 export USING_THIS_QUARTUS=`which quartus`
+function redo_sw() {
+  cd cpp
+  make clean
+  cd ../
+  make $1-sw
+}
+
+alias szcu='scp $(basename $(pwd)).tar.gz root@zcu102:'
