@@ -618,3 +618,9 @@ export aws_ip=54.196.63.244
 export GUROBI_HOME=/opt/gurobi752/linux64
 export PATH=$PATH:$GUROBI_HOME/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${GUROBI_HOME}/lib
+function sosymbol() {
+for lib in $(find . -name \*.so) ; do echo $lib ; nm -D $lib | grep $1 | grep -v " U "   ; done
+}
+function asymbol() {
+for lib in $(find . -name \*.a) ; do echo $lib ; nm $lib | grep $1 | grep -v " U "   ; done
+}
