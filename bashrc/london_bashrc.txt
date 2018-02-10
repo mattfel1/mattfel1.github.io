@@ -624,3 +624,17 @@ for lib in $(find . -name \*.so) ; do echo $lib ; nm -D $lib | grep $1 | grep -v
 function asymbol() {
 for lib in $(find . -name \*.a) ; do echo $lib ; nm $lib | grep $1 | grep -v " U "   ; done
 }
+function insideos {
+sed -i "s/#define FRINGE_MEM_BASEADDR.*/#define FRINGE_MEM_BASEADDR    0x20000000/g" cpp/fringeZCU/ZCUAddressMap.h
+}
+function outsideos {
+sed -i "s/#define FRINGE_MEM_BASEADDR.*/#define FRINGE_MEM_BASEADDR    0x4444000000/g" cpp/fringeZCU/ZCUAddressMap.h
+}
+
+function noflush {
+sed -i "s/.*c1->flushCache/\/\/c1->flushCache/g" cpp/TopHost.cpp
+}
+function yesflush {
+sed -i "s/.*c1->flushCache/c1->flushCache/g" cpp/TopHost.cpp
+}
+
