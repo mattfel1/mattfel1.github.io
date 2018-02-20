@@ -638,3 +638,4 @@ function yesflush {
 sed -i "s/.*c1->flushCache/c1->flushCache/g" cpp/TopHost.cpp
 }
 
+export MAILCHECK=0
