@@ -444,4 +444,4 @@ function redo_sw() {
   make $1-sw
 }
 
-alias szcu='scp $(basename $(pwd)).tar.gz root@zcu102:'
+alias szcu='scp $(basename $(pwd)).tar.gz root@holodeck-zcu102:'
