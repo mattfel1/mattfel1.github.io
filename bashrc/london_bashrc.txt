@@ -639,3 +639,4 @@ sed -i "s/.*c1->flushCache/c1->flushCache/g" cpp/TopHost.cpp
 }
 
 unset MAILCHECK
+export GNUPGHOME=/home/mattfel/.gnupg
