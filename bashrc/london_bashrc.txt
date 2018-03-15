@@ -528,7 +528,6 @@ export PATH=/usr/bin:/local/ssd/home/mattfel/aws-fpga/hdk/common/scripts:$PATH
 export LD_LIBRARY_PATH=${XILINX_VIVADO}/lib/lnx64.o:${LD_LIBRARY_PATH}
 #alias reg='cd /home/mattfel/regression'
 alias map='ll /remote/regression/mapping'
-alias sp='cd ~/spatial-lang'
 alias s='git status'
 alias c='git commit'
 alias ca='git checkout asplos2018'
@@ -541,6 +540,14 @@ alias a='git add'
 alias szc='scp $(basename $(pwd)).tar.gz mattfel@holodeck-zc706:'
 alias szcu='scp $(basename $(pwd)).tar.gz root@holodeck-zcu102:'
 export CLOCK_FREQ_MHZ=125
+
+function sp() {
+  if [[ ! -z $1 ]]; then
+    cd ~/spatial-lang/out$1
+  else
+    cd ~/spatial-lang
+  fi
+}
 
 function copy_aws_data() {
   scp -i ~/spatial_key.pem /remote/regression/data/machsuite/${1}* centos@54.84.94.1:/remote/regression/data/machsuite
