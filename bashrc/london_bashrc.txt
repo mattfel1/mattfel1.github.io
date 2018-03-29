@@ -280,6 +280,33 @@ function xapp {
   make xsim
 }
 
+
+# $1 channel
+# $2 appname
+# $3 multifile level
+# $4 retiming
+# $5 other flags like "--affine"
+function napp {
+  m=$3
+  r=''
+  if [[ $4 = "1" ]]; then
+    r='--retiming'
+  else
+    r='--noretime'
+  fi
+  cd /home/mattfel/spatial
+  #make
+  # make apps
+  rm -rf out${1}
+  cmd="bin/spatial $2 --synth --out=out${1} $r $5"
+  echo "$cmd"
+  eval "$cmd"
+  cd out${1}/$2
+  waveon
+  make vcs
+}
+
+
 # $1 channel
 # $2 appname
 # $3 multifile level
@@ -462,7 +489,6 @@ alias dot2='xdot /home/mattfel/spatial-lang/out2/dot/main.dot &'
 alias dot3='xdot /home/mattfel/spatial-lang/out3/dot/main.dot &'
 alias dot4='xdot /home/mattfel/spatial-lang/out4/dot/main.dot &'
 alias usage='cat RunRules/DFE/Top_cmd.log | grep %'
-alias centos='echo "password for root is aaaaaaaa (a x8)";ssh -X mattfel@192.168.122.59'
 alias fastmake='cp -r ${SPATIAL_HOME}/extern/compiler/src/ops/* ${PUB_HOME}/compiler/src/spatial/compiler/ops;cd ${PUB_HOME}/;sbt compile'
 alias forge='cd ${HYPER_HOME}/forge'
 alias lms='cd ${HYPER_HOME}/virtualization-lms-core/'
