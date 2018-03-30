@@ -301,7 +301,7 @@ function napp {
   cmd="bin/spatial $2 --synth --out=out${1} $r $5"
   echo "$cmd"
   eval "$cmd"
-  cd out${1}/$2
+  cd out${1}
   waveon
   make vcs
 }
