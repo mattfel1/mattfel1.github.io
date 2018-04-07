@@ -298,7 +298,7 @@ function napp {
   #make
   # make apps
   rm -rf out${1}
-  cmd="bin/spatial $2 --synth --out=out${1} $r $5"
+  cmd="bin/spatial $2 --synth --out=out${1} $r $5 -v"
   echo "$cmd"
   eval "$cmd"
   cd out${1}
