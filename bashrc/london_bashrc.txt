@@ -675,3 +675,4 @@ unset MAILCHECK
 export GNUPGHOME=/home/mattfel/.gnupg
 alias perm='stat -c %a'
 alias aws_env='source ~/aws-fpga/sdk_setup.sh && source ~/aws-fpga/hdk_setup.sh'
+export NEW_TEMPLATES_HOME=/home/mattfel/spatial/resources/synth/chisel-templates
