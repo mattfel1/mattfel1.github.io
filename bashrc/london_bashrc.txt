@@ -676,3 +676,11 @@ export GNUPGHOME=/home/mattfel/.gnupg
 alias perm='stat -c %a'
 alias aws_env='source ~/aws-fpga/sdk_setup.sh && source ~/aws-fpga/hdk_setup.sh'
 export NEW_TEMPLATES_HOME=/home/mattfel/spatial/resources/synth/chisel-templates
+
+# $1 = IP address
+function aws_copy() {
+  agfi=`cat aws_dir/fpgaIds | grep agfi | sed "s/^.*agfi-//g" | sed "s/\".*$//g"`
+  sed -i "s/\[PLACE ID HERE\]/$agfi/g" aws_dir/software/runtime/load.sh
+  scp -i ~/do_not_share.pem aws_dir/software/runtime/load.sh centos@$1:~/src/project_data/aws-fpga
+  scp -i ~/do_not_share.pem aws_dir/software/runtime/Top centos@$1:~/src/project_data/aws-fpga
+}
