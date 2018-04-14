@@ -301,6 +301,10 @@ function appwave {
    #$(ls -Rt ${PUB_HOME}/test_run_dir | awk '"'"'/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{ print s"/"$0 }'"'"' | grep "\.vcd" | head -1)
 }
 
+function nappwave {
+    gtkwave /mnt/london/spatial/out${1}/Top.vcd; 
+}
+
 function tree {
   cd ${SPATIAL_HOME}/out${1};google-chrome --new-window ${SPATIAL_HOME}/out${1}/controller_tree.html &
 }
