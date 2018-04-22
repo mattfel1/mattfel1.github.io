@@ -290,7 +290,7 @@ function napp {
   m=$3
   r=''
   if [[ $4 = "1" ]]; then
-    r='--retiming'
+    r=''
   else
     r='--noretime'
   fi
