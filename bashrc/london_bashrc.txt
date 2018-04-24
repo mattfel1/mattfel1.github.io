@@ -684,3 +684,8 @@ function aws_copy() {
   scp -i ~/do_not_share.pem aws_dir/software/runtime/load.sh centos@$1:~/src/project_data/aws-fpga
   scp -i ~/do_not_share.pem aws_dir/software/runtime/Top centos@$1:~/src/project_data/aws-fpga
 }
+
+# $1 = search string 
+function ezkill {
+  kill -9 $(ps aux | grep "mattfel.*$1" | awk '{print $2}')
+}
