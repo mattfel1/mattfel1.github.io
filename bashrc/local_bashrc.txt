@@ -305,6 +305,10 @@ function nappwave {
     gtkwave /mnt/london/spatial/out${1}/Top.vcd; 
 }
 
+function ntree {
+  cd /mnt/london/spatial/out${1}/chisel;google-chrome --new-window /mnt/london/spatial/out${1}/chisel/controller_tree.html &
+}
+
 function tree {
   cd ${SPATIAL_HOME}/out${1};google-chrome --new-window ${SPATIAL_HOME}/out${1}/controller_tree.html &
 }
