@@ -435,8 +435,8 @@ function inferapp {
 #    echo "$a has $cnt"
 #  fi
 #done
-cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g'
-
+if [[ -f controller_tree.html ]]; then cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g';
+else sed -n '12p' chisel/controller_tree.html; fi
 }
 function hardfloat() {
 find . -type f -exec sed -i 's/package hardfloat/package types/g' {} \;
