@@ -564,6 +564,7 @@ alias rr='bash utilities/run_regression.sh'
 alias ez='bash utilities/ezgit.sh'
 alias a='git add'
 alias szc='scp $(basename $(pwd)).tar.gz mattfel@holodeck-zc706:'
+alias szc2='scp $(basename $(pwd)).tar.gz mattfel@holodeck-zc706-2:'
 alias szcu='scp $(basename $(pwd)).tar.gz root@holodeck-zcu102:'
 export CLOCK_FREQ_MHZ=125
 
