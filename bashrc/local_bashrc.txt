@@ -390,6 +390,7 @@ alias dve='/cad/synopsys/vcs/K-2015.09-SP2-7/bin/dve -full64'
 alias open='okular'
 export SUNETID=mattfel
 alias zc='ssh holodeck-zc706.stanford.edu'
+alias zc2='ssh holodeck-zc706-2.stanford.edu'
 alias zcu='ssh root@holodeck-zcu102.stanford.edu'
 export PATH=$PATH:'/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/opt/Xilinx/Vivado/2017.3/bin'
 alias puttyde1='sudo putty /dev/ttyUSB0 -serial -sercfg 115200,8,n,1,N'
