@@ -414,3 +414,4 @@ alias a='git add'
 alias p='git push'
 alias junit='cd /mnt/london/spatial/target/test-reports;for i in *; do sed -i "s/&lt//g" "$i"; done;for i in *; do sed -i "s/&gt//g" "$i"; done;junit-viewer --results=. 2>&1 | tee index.html'
 alias startup='unity --reset;firefox;mntlon;subl_env'
+export NEW_TEMPLATES_HOME=/mnt/london/spatial/resources/synth/chisel-templates/
