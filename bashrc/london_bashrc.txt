@@ -436,7 +436,7 @@ function inferapp {
 #  fi
 #done
 if [[ -f controller_tree.html ]]; then cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g';
-else sed -n '12p' chisel/controller_tree.html; fi
+else sed -n '12p' html/controller_tree.html; fi
 }
 function hardfloat() {
 find . -type f -exec sed -i 's/package hardfloat/package types/g' {} \;
@@ -690,3 +690,5 @@ function aws_copy() {
 function ezkill {
   kill -9 $(ps aux | grep "mattfel.*$1" | awk '{print $2}')
 }
+export NUM_THREADS=10
+export TEST_DATA_HOME=/home/mattfel/spatial/resources/testdata
