@@ -435,7 +435,7 @@ function inferapp {
 #    echo "$a has $cnt"
 #  fi
 #done
-if [[ -f controller_tree.html ]]; then cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g';
+if [[ -f html/controller_tree.html ]]; then cat html/controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g';
 else sed -n '12p' html/controller_tree.html; fi
 }
 function hardfloat() {
