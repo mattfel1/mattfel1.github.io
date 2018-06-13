@@ -691,4 +691,4 @@ function ezkill {
   kill -9 $(ps aux | grep "mattfel.*$1" | awk '{print $2}')
 }
 export NUM_THREADS=10
-export TEST_DATA_HOME=/home/mattfel/spatial/resources/testdata
+export TEST_DATA_HOME=/home/mattfel/test-data/
