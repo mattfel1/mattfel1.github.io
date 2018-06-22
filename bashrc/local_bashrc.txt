@@ -328,7 +328,7 @@ fi
 
 alias screenoff='sudo xinput --disable "ELAN Touchscreen"'
 alias screenon='sudo xinput --enable "ELAN Touchscreen"'
-alias website='cd ~/Dropbox/Shared_Desktop/ResumeTex/;pdflatex ResumeMaster.tex > /dev/null;cp ResumeMaster.pdf ~/mattfel1.github.io/;cd ~/mattfel1.github.io;jekyll build;git add --all;git commit -m "test";git push'
+alias website='cd ~/Dropbox/Shared_Desktop/ResumeTex/;pdflatex ResumeMasterNoAddr.tex > /dev/null;cp ResumeMasterNoAddr.pdf ~/mattfel1.github.io/;cd ~/mattfel1.github.io;jekyll build;git add --all;git commit -m "test";git push'
 alias cleanmnt='sudo pkill -9 -f sshfs;sudo umount -l /mnt/london;sudo umount -l /mnt/tucson;sudo umount -l /mnt/max2;sudo umount -l /mnt/myth;sudo umount -l /mnt/pilot11'
 alias mntmaxeler='sudo sshfs mfeldman@portal.maxeler.com:/home/mfeldman /mnt/maxeler -p 3033 -o allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
 alias mntmyth='sudo sshfs mattfel@myth.stanford.edu:/afs/.ir/users/m/a/mattfel /mnt/myth -o allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
