@@ -302,7 +302,8 @@ function appwave {
 }
 
 function nappwave {
-    gtkwave /mnt/london/spatial/out${1}/Top.vcd; 
+    #gtkwave /mnt/london/spatial/out${1}/Top.vcd; 
+    gtkwave /mnt/tucson/spatial/out${1}/Top.vcd; 
 }
 
 function ntree {
