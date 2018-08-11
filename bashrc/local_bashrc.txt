@@ -416,3 +416,4 @@ alias p='git push'
 alias junit='cd /mnt/london/spatial/target/test-reports;for i in *; do sed -i "s/&lt//g" "$i"; done;for i in *; do sed -i "s/&gt//g" "$i"; done;junit-viewer --results=. 2>&1 | tee index.html'
 alias startup='unity --reset;firefox;mntlon;subl_env'
 export NEW_TEMPLATES_HOME=/mnt/london/spatial/resources/synth/chisel-templates/
+alias pilotvpn='sudo openfortivpn loft.pilot.ai:10443 --username=matt --trusted-cert 7051271a5e74d9d2e56ad8a85800f9b1fd9a0e1ac9ad9c0e84b6cf97b8db9beb'
