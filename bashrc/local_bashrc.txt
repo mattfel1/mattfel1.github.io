@@ -403,6 +403,9 @@ alias mntpilot='sudo sshfs matt@loft.pilot.ai:/local_data /mnt/pilot11 -o allow_
 alias tpon='xinput set-prop 13 "Device Enabled" 1'
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:/opt/altera/license/1-ECLIAL_License.dat:7193@cadlic0.stanford.edu:1717@cadlic0:$LM_LICENSE_FILE:7193@cadlic0.stanford.edu:/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:$LM_LICENSE_FILE
 
+function acm {
+  sudo chmod 666 /dev/ttyACM$1
+}
 function usb {
   sudo chmod 666 /dev/ttyUSB$1
 }
