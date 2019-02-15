@@ -125,14 +125,14 @@ then
 else
     echo "Sublime already open"
 fi
-if mount | grep /mnt/london > /dev/null; then
+if mount | grep /mnt/lagos > /dev/null; then
     echo "London already mounted"
 else
-    mntlon
+    mntlag
 fi
 
 echo "sshing"
-gnome-terminal --profile=elio -e "ssh -X london.stanford.edu ";exit
+gnome-terminal --profile=elio -e "ssh -X lagos.stanford.edu ";exit
 }
 
 # $1 channel
@@ -225,11 +225,11 @@ function locate {
   grep -r "$1" ${PUB_HOME}
 }
 
-function env_london {
-export SPATIAL_HOME='/mnt/london/macro/spatial'
-export PUB_HOME='/mnt/london/macro/spatial/out'
-export ARGON_HOME='/mnt/london/macro/argon'
-export VIRTUALIZED_HOME='/mnt/london/macro/scala-virtualized'
+function env_lagos {
+export SPATIAL_HOME='/mnt/lagos/macro/spatial'
+export PUB_HOME='/mnt/lagos/macro/spatial/out'
+export ARGON_HOME='/mnt/lagos/macro/argon'
+export VIRTUALIZED_HOME='/mnt/lagos/macro/scala-virtualized'
 }
 
 function halide {
@@ -254,11 +254,11 @@ function halide {
 
 # $1 = environment to open
 function subl_env {
-  if [[ "$1" == "lon" || "$1" == "london" ]]; then
-    tp="london"
+  if [[ "$1" == "lon" || "$1" == "lagos" ]]; then
+    tp="lagos"
     cleanmnt
-    mntlon
-    londonenv
+    mntlag
+    lagosenv
     cmd="subl /home/mattfel/sublime_projects/${tp}_generated.sublime-workspace &"
     eval "$cmd"
     cmd="subl /home/mattfel/sublime_projects/${tp}_templates.sublime-workspace &"
@@ -302,11 +302,12 @@ function appwave {
 }
 
 function nappwave {
-    gtkwave /mnt/london/spatial/out${1}/Top.vcd; 
+    gtkwave /mnt/lagos/spatial/out${1}/Top.vcd; 
+    #gtkwave /mnt/tucson/spatial/out${1}/Top.vcd; 
 }
 
 function ntree {
-  cd /mnt/london/spatial/out${1}/html;google-chrome --new-window /mnt/london/spatial/out${1}/html/controller_tree.html &
+  cd /mnt/lagos/spatial/out${1}/html;google-chrome --new-window /mnt/lagos/spatial/out${1}/html/controller_tree.html &
 }
 
 function tree {
@@ -328,13 +329,13 @@ fi
 
 alias screenoff='sudo xinput --disable "ELAN Touchscreen"'
 alias screenon='sudo xinput --enable "ELAN Touchscreen"'
-alias website='cd ~/Dropbox/Shared_Desktop/ResumeTex/;pdflatex ResumeMaster.tex > /dev/null;cp ResumeMaster.pdf ~/mattfel1.github.io/;cd ~/mattfel1.github.io;jekyll build;git add --all;git commit -m "test";git push'
-alias cleanmnt='sudo pkill -9 -f sshfs;sudo umount -l /mnt/london;sudo umount -l /mnt/tucson;sudo umount -l /mnt/max2;sudo umount -l /mnt/myth;sudo umount -l /mnt/pilot11'
+alias website='cd ~/Dropbox/Shared_Desktop/ResumeTex/;pdflatex ResumeMasterNoAddr.tex > /dev/null;cp ResumeMasterNoAddr.pdf ~/mattfel1.github.io/;cd ~/mattfel1.github.io;jekyll build;git add --all;git commit -m "test";git push'
+alias cleanmnt='sudo pkill -9 -f sshfs;sudo umount -l /mnt/lagos;sudo umount -l /mnt/tucson;sudo umount -l /mnt/max2;sudo umount -l /mnt/myth;sudo umount -l /mnt/pilot11'
 alias mntmaxeler='sudo sshfs mfeldman@portal.maxeler.com:/home/mfeldman /mnt/maxeler -p 3033 -o allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
 alias mntmyth='sudo sshfs mattfel@myth.stanford.edu:/afs/.ir/users/m/a/mattfel /mnt/myth -o allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
 alias mntmax='sudo sshfs mattfel@max-2.stanford.edu:/kunle/users/mattfel /mnt/max2 -o allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
 alias mnttuc='sudo sshfs mattfel@tucson.stanford.edu:/home/mattfel /mnt/tucson -o allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
-alias mntlon='sudo sshfs mattfel@london.stanford.edu:/home/mattfel /mnt/london -o Ciphers=arcfour,allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
+alias mntlag='sudo sshfs mattfel@lagos.stanford.edu:/home/mattfel /mnt/lagos -o allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
 alias mntpor='sudo sshfs mattfel@portland.stanford.edu:/home/mattfel /mnt/portland -o allow_other,IdentityFile=/home/mattfel/.ssh/id_rsa'
 alias dot='xdot ~/dhdl/out/dot/outfile.dot &'
 alias encrypt='7z a -p '
@@ -350,7 +351,7 @@ alias converter='gnome-terminal --profile=white -e "bash -c \"wmctrl -r :ACTIVE:
 alias tucson='gnome-terminal --profile=tucson -e "ssh -X tucson.stanford.edu";exit'
 alias tflop1='gnome-terminal --profile=tflop1 -e "ssh -X tflop1.stanford.edu";exit'
 alias tflop2='gnome-terminal --profile=tflop2 -e "ssh -X tflop2.stanford.edu";exit'
-alias london='gnome-terminal --profile=london -e "ssh -X london.stanford.edu";exit'
+alias lagos='gnome-terminal --profile=lagos -e "ssh -X lagos.stanford.edu";exit'
 alias manchester='gnome-terminal --profile=manchester -e "ssh -X manchester.stanford.edu";exit'
 alias pilot='gnome-terminal --profile=pilot -e "ssh -Yp1014 matt@loft.pilot.ai";exit'
 alias ottawa='gnome-terminal --profile=ottawa -e "ssh -X ottawa.stanford.edu";exit'
@@ -361,7 +362,7 @@ alias enter_passwd='watch -n1.5 "xdotool key ctrl+shift+v Return ctrl+a n"'
 alias corn='gnome-terminal --profile=cyclades -e "ssh -X corn.stanford.edu";exit'
 alias myth='gnome-terminal --profile=cyclades -e "ssh -X myth.stanford.edu";exit'
 alias tucsonenv='export PUB_HOME=/mnt/tucson/spatial-lang/out;export SPATIAL_HOME=/mnt/tucson/spatial-lang;TEMPLATES_HOME=/mnt/tucson/spatial-lang/spatial/core/resources/chiselgen/template-level'
-alias londonenv='export PUB_HOME=/mnt/london/spatial-lang/out;export SPATIAL_HOME=/mnt/london/spatial-lang;TEMPLATES_HOME=/mnt/london/spatial-lang/spatial/core/resources/chiselgen/template-level'
+alias lagosenv='export PUB_HOME=/mnt/lagos/spatial-lang/out;export SPATIAL_HOME=/mnt/lagos/spatial-lang;TEMPLATES_HOME=/mnt/lagos/spatial-lang/spatial/core/resources/chiselgen/template-level'
 alias templates='cd ${TEMPLATES_HOME}'
 alias inferapp='grep -r "// TopModule for application:" . | sed "s/.*\/\/ TopModule for application: //g"'
 alias regreminder='echo ''notify-send "Check regression and put pre-master into master if success!"'' | at now + 100 minutes'
@@ -389,6 +390,7 @@ export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
 alias dve='/cad/synopsys/vcs/K-2015.09-SP2-7/bin/dve -full64'
 alias open='okular'
 export SUNETID=mattfel
+alias zed='ssh holodeck-zedboard.stanford.edu'
 alias zc='ssh holodeck-zc706.stanford.edu'
 alias zc2='ssh holodeck-zc706-2.stanford.edu'
 alias zcu='ssh root@holodeck-zcu102.stanford.edu'
@@ -402,6 +404,9 @@ alias mntpilot='sudo sshfs matt@loft.pilot.ai:/local_data /mnt/pilot11 -o allow_
 alias tpon='xinput set-prop 13 "Device Enabled" 1'
 export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:/opt/altera/license/1-ECLIAL_License.dat:7193@cadlic0.stanford.edu:1717@cadlic0:$LM_LICENSE_FILE:7193@cadlic0.stanford.edu:/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:$LM_LICENSE_FILE
 
+function acm {
+  sudo chmod 666 /dev/ttyACM$1
+}
 function usb {
   sudo chmod 666 /dev/ttyUSB$1
 }
@@ -412,6 +417,8 @@ alias s='git status'
 alias c='git commit'
 alias a='git add'
 alias p='git push'
-alias junit='cd /mnt/london/spatial/target/test-reports;for i in *; do sed -i "s/&lt//g" "$i"; done;for i in *; do sed -i "s/&gt//g" "$i"; done;junit-viewer --results=. 2>&1 | tee index.html'
-alias startup='unity --reset;firefox;mntlon;subl_env'
-export NEW_TEMPLATES_HOME=/mnt/london/spatial/resources/synth/chisel-templates/
+alias junit='cd /mnt/lagos/spatial/target/test-reports;for i in *; do sed -i "s/&lt//g" "$i"; done;for i in *; do sed -i "s/&gt//g" "$i"; done;junit-viewer --results=. 2>&1 | tee index.html'
+alias startup='unity --reset;firefox;mntlag;subl_env'
+export NEW_TEMPLATES_HOME=/mnt/lagos/spatial/resources/synth/chisel-templates/
+alias pilotvpn='sudo openfortivpn loft.pilot.ai:10443 --username=matt --trusted-cert 7051271a5e74d9d2e56ad8a85800f9b1fd9a0e1ac9ad9c0e84b6cf97b8db9beb'
+alias pwnorm='pwgen -sync 20 -r \[\]\(\)\{\}\/\\\`\'"'"'\;\:\+\<\>\?\"'
