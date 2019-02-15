@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/mattfel1.github.io/bashrc
+cd ~/mattfel1.github.io/_bashrc
 git pull
 servers=("max-2" "tucson" "portland" "london" "maxeler" "tflop2" "tflop1" "ottawa")
 for s in ${servers[@]}; do
@@ -9,7 +9,7 @@ for s in ${servers[@]}; do
   else
     cmd="${s}.stanford.edu"
   fi
-  scp -o ConnectTimeout=1 ${cmd}:~/.bashrc ~/mattfel1.github.io/bashrc/${s}_bashrc.txt
+  scp -o ConnectTimeout=1 ${cmd}:~/.bashrc ~/mattfel1.github.io/_bashrc/${s}_bashrc.txt
   if [[ $? = 0 ]]; then # success
     st="sed -i 's/rgb(.*)\"><font color=\"rgb(.*)\">.*${s} bashrc/rgb(5,140,5)\"><font color=\"rgb(5,140,5)\">✓ ${s} bashrc/g' index.html"
     eval $st
@@ -17,7 +17,7 @@ for s in ${servers[@]}; do
     st="sed -i 's/rgb(.*)\"><font color=\"rgb(.*)\">.*${s} bashrc/rgb(255,51,51)\"><font color=\"rgb(255,51,51)\">× ${s} bashrc/g' index.html"
     eval $st
   fi
-  scp -o ConnectTimeout=1 ${cmd}:~/.bash_aliases ~/mattfel1.github.io/bashrc/${s}_bash_aliases.txt
+  scp -o ConnectTimeout=1 ${cmd}:~/.bash_aliases ~/mattfel1.github.io/_bashrc/${s}_bash_aliases.txt
   if [[ $? = 0 ]]; then # success
     st="sed -i 's/rgb(.*)\"><font color=\"rgb(.*)\">.*${s} bash_alias/rgb(5,140,5)\"><font color=\"rgb(5,140,5)\">✓ ${s} bash_alias/g' index.html"
     eval $st
@@ -27,7 +27,7 @@ for s in ${servers[@]}; do
   fi
 done
 
-cd ~/mattfel1.github.io/bashrc
+cd ~/mattfel1.github.io/_bashrc
 tim=`date`
 sed -i "s/Last server update: .*/Last server update: ${tim}/g" index.html
 git add -A

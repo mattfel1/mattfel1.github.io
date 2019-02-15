@@ -73,8 +73,51 @@ xterm*|rxvt*)
 esac
 
 function waveon {
-  sed -i 's/vcdon = .*;/vcdon = 1;/g' chisel/template-level/fringeVCS/Top-harness.sv
+  sed -i 's/vcdon = .*;/vcdon = 1;/g' vcs.hw-resources/Top-harness.sv
 }
+function waveoff {
+  sed -i 's/vcdon = .*;/vcdon = 0;/g' vcs.hw-resources/Top-harness.sv
+}
+
+
+# $1 channel
+# $2 appname
+# $3 multifile level
+# $4 retiming
+# $5 other flags like "--affine"
+function napp {
+  curpath=`pwd`
+  basepath=`echo $curpath | sed "s/\/spatial\/.*/\/spatial\//g"`
+  cd $basepath
+  r=''
+  #cd /home/mattfel/spatial
+  #make
+  # make apps
+  rm -rf out${1}
+  cmd="bin/spatial $2 --synth --out=out${1} --fpga=VCS $3 $4 $5 $6 $7 --vv"
+  echo "$cmd"
+  eval "$cmd" &&  cd out${1} &&  waveon && make
+}
+
+# $1 channel
+# $2 appname
+# $3 multifile level
+# $4 retiming
+# $5 other flags like "--affine"
+function zcapp {
+  r=''
+  #cd /home/mattfel/spatial
+  #make
+  # make apps
+  rm -rf out${1}
+  cmd="bin/spatial $2 --synth --out=out${1} --fpga=ZCU $3 $4 $5 $6 $7 --vv "
+  echo "$cmd"
+  eval "$cmd"
+  cd out${1}
+  make
+}
+
+
 
 # $1 channel
 # $2 appname
@@ -267,7 +310,8 @@ dapp() {
 
 inferapp() {
 ## MODERN WAY
-cat controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g'
+if [[ -f info/controller_tree.html ]]; then cat info/controller_tree.html | grep "Diagram for" | sed 's/.*Diagram for //g' | sed 's/<\/h2>//g';
+else sed -n '12p' html/controller_tree.html; fi
 
 ## OLD SCHOOL WAY
 #echo "Run this fcn in the base output maxj dir to infer which app this is"
@@ -435,7 +479,8 @@ export QSYS_ROOTDIR="/opt/intelFPGA_pro/$QVER/qsys/bin/"
 export PATH=/opt/intelFPGA_pro/$QVER/quartus/sopc_builder/bin:$PATH
 export ALTERAOCLSDKROOT="/opt/intelFPGA_pro/$QVER/hld"
 export LM_LICENSE_FILE=“/opt/intelFPGA_pro/licenses/arria10-license.dat”:$LM_LICENSE_FILE
-export ALTERAD_LICENSE_FILE=“/opt/intelFPGA_pro/licenses/arria10-license.dat”
+#export ALTERAD_LICENSE_FILE=“/opt/intelFPGA_pro/licenses/arria10-license.dat”
+export ALTERAD_LICENSE_FILE=/opt/intelFPGA_pro/licenses/arria10-license.dat:7193@cadlic0.stanford.edu:1717@cadlic0.stanford.edu:27000@cadlic0.stanford.edu:7195@cadlic0.stanford.edu:“/opt/intelFPGA_pro/licenses/arria10-license.dat”:7195@cadlic0.stanford.edu:1717@cadlic0.stanford.edu:27000@cadlic0.stanford.edu:/opt/Xilinx/awsF1.lic:7193@cadlic0.stanford.edu:/opt/altera/13.1/license/1-ECLIAL_License.dat:/opt/intelFPGA_pro/licenses/arria10-license.dat
 export USING_THIS_QUARTUS=`which quartus`
 function redo_sw() {
   cd cpp
@@ -445,3 +490,17 @@ function redo_sw() {
 }
 
 alias szcu='scp $(basename $(pwd)).tar.gz root@holodeck-zcu102:'
+
+export NUM_THREADS=5
+export TEST_DATA_HOME=/home/mattfel/test-data/
+
+export LM_LICENSE_FILE=7195@cadlic0.stanford.edu:$LM_LICENSE_FILE
+export LM_LICENSE_FILE=27000@cadlic0.stanford.edu:$LM_LICENSE_FILE
+export LM_LICENSE_FILE=1717@cadlic0.stanford.edu:$LM_LICENSE_FILE
+export LM_LICENSE_FILE=7193@cadlic0.stanford.edu:$LM_LICENSE_FILE
+export LM_LICENSE_FILE="/opt/intelFPGA_pro/licenses/arria10-license.dat":$LM_LICENSE_FILE
+# export ALTERAD_LICENSE_FILE="/opt/intelFPGA_pro/licenses/arria10-license.dat:/opt/intelFPGA_pro/licenses/VIP.dat"
+export FRINGE_PACKAGE=test
+export EMUL_PACKAGE=test
+alias remake='cd .. && make resources && cd - && make'
+export DIRTY=1 # if set, vivado will use Quick P&R
